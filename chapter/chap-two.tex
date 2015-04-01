@@ -1,0 +1,181 @@
+\chapter{Algebraic Number Theory}
+\label{chap:chap-two}
+Algebraic number theory is a major branch of number theory that studies algebraic structures related to algebraic integers. Usually, it studies algebraic properties of the algebraic integers' ring such as factorization, the behaviour of ideals, and field extensions. In this chapter, we will introduce some definitions and useful results in algebraic number theory as well as some preliminaries of analytic number theory based on \citep{Xianke2006ANT,cohen1993course,mollin1999algebraic}. 
+
+\section{Algebraic Numbers and Number Fields}
+We first give the necessary background on algebraic numbers, number fields etc. Let $\alpha\in\mathbb{C}$. Then $\alpha$ is called an \textbf{algebraic number} if there exists $f(x)\in\mathbb{Z}[x]/{0}$ such that $f(\alpha)=0$. The number $\alpha$ is called an \textbf{algebraic integer} if, in addition, one can choose $f$ to be monic.(i.e. with leading coefficient equal to 1).
+
+More generally, we can define the integral element of a ring(See \citep{Xianke2006ANT}) through similar definition.
+
+%\begin{definition}
+%Let $\alpha\in\mathbb{C}$ be an algebraic number, and $f(x)$ its minimal polynomial. The conjugates of $\alpha$ are all the $deg(f)$ roots of $f$ in $\mathbb{C}$.
+%\end{definition}
+
+A \textbf{number field} is a field containing $\mathbb{Q}$ which, considered
+as a $\mathbb{Q}$-vector space, is finite dimensional. The number $d=[K:\mathbb{Q}]=\text{dim}_{\mathbb{Q}}K$ is called the degree of the number field $K$.
+
+The \textbf{signature} of a number field is the pair $(r_1,r_2)$ where $r_1$ is the number of embeddings of $K$ whose image lie in $\mathbb{R}$, and $2r_2$ is the number of non-real complex embeddings, so that $r_1+2r_2=n$. If $T$ is an irreducible polynomial defining the number field $K$ by one of its roots, the signature of $K$ will also be called the signature of $T$.
+
+The following proposition \citep{cohen1993course} shows that there are only two possibilities for the signature of a Galois extensions.
+\begin{lemma}\label{lem:signaturegal}
+Let $K$ be a Galois extension of $\mathbb{Q}$ of degree $n$. Then,
+either $K$ is totally real $(r_1=n)$,or K is totally complex $(r_2=n/2)$ which can occur only if $n$ is even.
+\end{lemma}
+
+\section{Discriminants of Elements and Fields}
+The definition of discriminants of polynomials can be found in the Appendix \ref{chap:appB} if need some reviews, now we will introduce the definition of discriminant of elements and fields.
+Let $K$ be a number field of degree $n$, $\sigma_i$ be the $n$ embeddings of $K$ into $\mathbb{C}$, and $\alpha_j$ be the set of $n$ elements of $K$. Then we have $$\operatorname{Disc}(\alpha_1,\dots,\alpha_n)=\det(\sigma_i(\alpha_j))^2=\det(\operatorname{Tr}_{K/\mathbb{Q}}(\alpha_i\alpha_j))$$
+In particular,If $K=\mathbb{Q}(\alpha)$, $f(x)$ is the minimal polynomial of $\alpha$, then $$\operatorname{Disc}(f)=\operatorname{Disc}(\alpha)=\operatorname{Disc}(1,\dots,\alpha^{n-1})$$
+
+we denote by $O_K$ the ring of algebraic(rational) integers of $K$. Then we have that the ring $O_K$ is a free $\mathbb{Z}$-module of rank $n=\operatorname{deg}(K)$. Hence we can define the (absolutely) integral basis as follows:
+
+\begin{definition}
+A $\mathbb{Z}$-basis of the free module $O_K$ will be called an (absolutely)\textbf{integral basis} of K. The discriminant of an integral basis is independent of the choice of that basis, and is called the \textbf{discriminant of the field} $K$ and is denoted by $d(K)$.
+\end{definition}
+
+Similarly, we can define a \textbf{relatively integral basis}: Let $A$ be a commutative integral domain with 1, $K=\operatorname{Frac}(A)$,$L/K$ is an extension with $[L:K]=n$, $B$ is the integral closure of $A$ in $L$. If $B$ is a free $A$-module , i.e. $B=A \alpha_1\oplus\cdots\oplus A\alpha_n$. Then we call $\alpha_1,\dots,\alpha_n$ the $A$-basis of $B$(resp. integral basis of $L/K$.) Then we have $$\operatorname{Disc}(L/K)=(\operatorname{Disc}(\alpha_1,\dots,\alpha_n)),$$ which is the discriminant of $L/K$. 
+
+Then, we will show a important theorem \citep{mollin1999algebraic} regarding the relationship of the discriminant of the minimal polynomial and the discriminant of the field. 
+
+\begin{lemma}\label{lem:discpoly-field}
+Let $T$ be a monic irreducible polynomial of degree $n$ in $\mathbb{Z}[x]$, $\theta$ a root of $T$, and $K=\mathbb{Q}(\theta)$. If $f=[O_K:\mathbb{Z}[\theta]]$, then $$\operatorname{Disc}(T)=d(K)f^2.$$
+\end{lemma}
+
+The number $f$ is called the \textbf{index} of $\theta$ in $O_K$. A theorem for recognizing the integral basis of a field is important. Moreover, we have general results for relative integral basis \citep{Xianke2006ANT}. The following proposition has combined these two cases.
+
+\begin{proposition}
+The algebraic numbers $\alpha_1,\dots,\alpha_n$ form an integral basis if and only if they are algebraic integers and if $\operatorname{Disc}(\alpha_1,\dots,\alpha_n)=d(K)$.
+More generally, if $L/K$ has integral basis, then $\beta_1,\dots,\beta_n\in B$ form an integral basis if and only if $(\operatorname{Disc}(\beta_1,\cdots,\beta_n))=\operatorname{Disc}(L/K)$.
+\end{proposition}
+
+The result related the structure of discriminant of a field due to Stickelberger can not be avoid when we talking about discriminant here:
+\begin{lemma}[Stickelberger's criterion]\label{thm:stickelberger}
+Let $K$ be a number field, then $$d(K)\equiv 0\text{ or }1(\operatorname{mod} 4)$$
+\end{lemma}
+ 
+The determination of an explicit integral basis and of the discriminant of a number field is not an easy problem, and is one of the main tasks of this article. However one case in which the result is trivial:
+\begin{corollary}
+Let $f$ be a monic irreducible(i.e. minimal) polynomial in $\mathbb{Z}[x]$, $\theta$ a root of $f$, and $K=\mathbb{Q}(\theta)$. Assume that the discriminant of $f$ is squarefree or is equal to $4d$ where $d$ is squarefree and not congruent to 1 modulo 4. Then the discriminant of K is equal to the discriminant of $f$, and an integral basis of $K$ is given by $1,\theta,\dots,\theta^{n-1}$.
+\end{corollary}
+
+Finally, the result to determine the sign of discriminant is useful:
+\begin{lemma}
+Let $K$ be an algebraic number field, then $$d(K)=(-1)^{r_2}|d(K)|$$
+\end{lemma}
+
+\section{Decomposition of Prime Numbers}
+For simplicity, we continue to work with a number field $K$ considered as an (finite) extension of $\mathbb{Q}$, and not considered as a relative extension. Many of the results which are explained in that context are still true in the more general case, but some are not. Almost always, these generalizations fail because the ring of integers of the base field is not a PID(Dedekind).
+The main results concerning the decomposition of primes are as follows:
+\begin{proposition}\label{thm:decomposition}
+Let $p$ be a prime number, then there exist positive integers $e_i$ such that $$pO_K=\prod_{i=1}^g \wp_i^{e_i},$$ where $\wp_i$ are all the prime ideals above $p$, i.e. $\wp_i\cap \mathbb{Z}=p\mathbb{Z}$.
+\end{proposition}
+
+The integer $e_i$ is called the \textbf{ramification index} of $p$ at $\wp_i$ and is denoted $e(\wp_i|p)$. The degree $f_i$ of the field extension defined by $$f_i=[O_K/\wp_i:\mathbb{Z}/p\mathbb{Z}]$$ is called the \textbf{residue degree} of $p$ and is denoted $f(\wp_i|p)$. $g$ is called the \textbf{decomposition number} of $p$ in $K$.
+
+There is an important relation between these coefficients, which comes to a theorem.
+\begin{proposition}
+Let $[K:\mathbb{Q}]=n$, then for any $p$, the decomposition in Theorem  \ref{thm:decomposition} satisfies $$\sum_{i=1}^g e_if_i=n.$$
+\end{proposition}
+
+Let $pO_K=\prod_{i=1}^g \wp_i^{e_i}$ be the decomposition of a prime $p$. We will say that $p$ is \textbf{inert} if $g=1$ and $e_i=1$,i.e. $pO_K=\wp_i$.
+We will say that $p$ \textbf{splits completely} if $g=n$.
+Finally, we say that $p$ is \textbf{ramified} if there is an $e_i$ which is greater than or equal to 2 (in other words if $pO_K$ is not squarefree), otherwise we say that $p$ is \textbf{unramified}. Those prime ideals $\wp_i$ such that $e_i>1$ are called the ramified prime ideals of $O_K$. In particular, if $e_1=n$, then we say that $p$ \textbf{ramifies totally}.
+
+From the definitions of these ramification index and decomposition number satisfy chain rule, which is a very important message for us to decompose prime number in a compositum of fields. 
+
+In the case when $K/\mathbb{Q}$ is a Galois extension, the result is more specific:
+Assume $K/\mathbb{Q}$ is a Galois extension. Then for any $p$, the ramification indices $e_i$ are equal, the residual degrees $f_i$ are equal as well, hence $e f g=n$. 
+In addition, the Galois group operates \textbf{transitively} on the prime ideals above $p$: i.e. there exists $\sigma\in\operatorname{Gal}(K)$, such that $\sigma(\wp_i)=\wp_j$.
+
+
+The existence of ramified prime has showed by Minkowski: If $K$ is a number field different from $\mathbb{Q}$, then $|d(K)|>1$. In particular, there exists at least one ramified prime in $K$. What's more, the fundamental ramification theorem\citep{cohen1993course} is as follows:
+\begin{proposition}\label{thm:ramification}
+Let $p$ be a prime number, then $p$ is ramified in $K$ if and only if $p$ divides the discriminant $d(K)$. In particular, there are only a finite number of ramified primes (exactly $w(d(K))$, where $w(x)$ is the number of distinct prime divisors of an integer $x$).
+\end{proposition}
+
+On the contrary, for unramified prime, we have another theorem given by Stickelberger\citep{cohen1993course}.
+\begin{proposition}[Stickelbeger]\label{thm:unramified}
+If $p$ is an unramified prime in $K$ with $pO_K=\prod_{i=1}^g \wp_i$, we have $$\left(\frac{d(K)}{p}\right)=(-1)^{n-g},$$ for $p=2$, $\left(\frac{d(K)}{2}\right)=(-1)^{n-g}$ is to be seen as the Jacobi-Kronecker symbol(See Appendix \ref{chap:appA}). 
+\end{proposition}
+
+%\begin{corollary}[quadratic field]
+%The decomposition type of a prime number $p$ in a quadratic field $K$ of discriminant $D$ is the %following: if $\left(\frac{D}{p}\right)=-1$, then $p$ is inert. If  $\left(\frac{D}{p}\right)=0$, then $p$ is ramified. Finally, if $\left(\frac{D}{p}\right)=1$, then $p$ splits(completely).
+%\end{corollary}
+
+We now consider a more difficult algorithmic problem, that of determining the decomposition of prime numbers in a number field. The basic theorem on the subject, which unfortunately is not completely sufficient(but right for Dedekind domain with power integral basis, even for without essential factor), is as follows.
+
+\begin{proposition}[Kummer]\label{thm:kummer}
+Let $K=\mathbb{Q}(\theta)$ be a number field, where $\theta$ is an algebraic integer, whose minimal polynomial is denoted $T(x)$. Let $f$ be the index of $\theta$, i.e. from definition $f=[O_K:\mathbb{Z}[\theta]]$. Then for any prime $p$ not dividing $f$ on can obtain the prime decomposition of $pO_K$ as follows. Assume $$T(x)\equiv \prod_{i=1}^g T_{i}(x)^{e_i} (\operatorname{mod } p)$$ be the decomposition of $T$ into irreducible factors in $\mathbb{F}_p[x]$, where the $T_i$ are also monic. Then $$pO_K=\prod_{i=1}^g\wp_i^{e_i},$$ where $$\wp_i=(p,T_i(\theta))=pO_K+T_i(\theta)O_K$$
+Furthermore, the residual index $f_i$ is equal to the degree of $T_i$. 
+\end{proposition}
+
+\section{Units and Ideal Classes}\label{sec:unitsideal}
+Let $K$ be a number field and $O_K$ be the ring of integers of $K$. We say that two (fractional) ideals\footnote{Fractional ideal $I$ in $O_K$ is a non-zero sub-module of $K$ such that there exists a non-zero integer $d$ with $d I$ ideal of $O_K$.} $I$ and $J$ of $K$ are equivalent if there exists $\alpha\in K^*$ such that $J=\alpha I$. The set of equivalence classes is called the \textbf{class group} of $O_K$ and is denoted $Cl(K)$. 
+
+Since fractional ideals of $O_K$ form a group it follows that $Cl(K)$ is also a group. The main theorem concerning $Cl(K)$ is that it is finite.
+
+For any number field $K$, the class group $Cl(K)$ is a finite Abelian group, whose cardinality, called the \textbf{class number}, is denoted $h(K)$. Note that $h(K)=1$ if and only if $O_K$ is a PID(UFD).
+
+Denote by $I(K)$ the set of fractional ideals of $K$, and $P(K)$ the set of principal ideals. We clearly have the exact sequence:
+$$1\rightarrow P(K)\rightarrow I(K)\rightarrow Cl(K)\rightarrow1.$$
+
+The set of units in $K$ form a multiplicative group which we will denote by $U(K)$. Units are algebraic  integers of norm equal to $\pm1$. The torsion subgroup of $U(K)$, i.e. the group of roots of unity in K, will be denoted by $\mu(K)$.
+
+It is clear that we have the exact sequence:
+$$1\rightarrow U(K)\rightarrow K^{\times}\rightarrow P(K)\rightarrow1.$$
+To sum up above two sequence, we have new exact sequence as follows:
+$$1\rightarrow U(K)\rightarrow K^{\times}\rightarrow P(K)\rightarrow I(K)\rightarrow Cl(K)\rightarrow1.$$
+
+The main result concerning units is the following theorem:
+\begin{proposition}[Dirichlet's Unit Theorem]\label{thm:Dirichlet}
+Let $(r_1,r_2)$ be the signature of $K$, then $U(K)$ is finitely generated Abelian group of rank $r_1+r_2-1$. i.e. we have a group isomorphism: $$U(K)\cong\mu(K)\times\mathbb{Z}^{r_1+r_2-1},$$ and $\mu(K)$ is a finite cyclic group.
+\end{proposition}
+If we set $r = r_1+r_2-1$, we see that there exist units $u_1,\dots,u_r$ such that every element $x$ of $U(K)$ can be written in a unique way as $$x=\zeta u_1^{n_1}\cdots u_r^{n_r},$$ where $n_i\in\mathbb{Z}$ and $\zeta$ is a root of unity in $K$.Such a family $(u_i)$ is called a system of \textbf{fundamental units} of $K$. 
+
+A very important property is the number is finite, what's more, like we claimed before, the ideal class group for any number field is a finite Abelian group. As for the class number, we can give a certain upper bound of it. First of all, we give the definition of Minkowski bound \citep{mollin1999algebraic}:
+\begin{definition}\label{def:minkowski}
+If $K$ is a number field, the quantity $$C_K=\left(\frac{4}{\pi}\right)^{r_2}\frac{n!}{n^n}\sqrt{|d(K)|}$$ is called the  \textbf{Minkowski's bound}, where $d(K)$ is the discriminant of $K$ and $[K:\mathbb{Q}]=n$ with signature $\{r_1,r_2\}$.
+\end{definition}
+The following lemma \citep{mollin1999algebraic} will give us a useful method to determined the class number and class field for $n=[K:\mathbb{Q}]$ is small.
+\begin{lemma}
+Any ideal class of a number field $K$ has an (integral) ideal $I$, such that $$\operatorname{N}(I)\leq C_K$$
+\end{lemma}
+From this lemma, we can also get the so-called Hermite's theorem on discriminant: There are only finitely many number fields having a given discriminant $d$.
+
+In fact, we have a following method to determined the class number and class group" Firstly, we should calculated the Minkowski's bound of the number field $K$. From the lemma, we can find all rational primes that $p\leq C_K$. Given the prime decomposition of $pO_K$, then we can compute all prime ideals $\wp$ over $p$. Hence the class group $Cl(K)$ is generated by $A=\{[\wp]|\wp|p\leq C_K\}$, where $[\wp]$ is the ideal class which $\wp$ lies in. If $A$ is not so big, the we can consider the multiple relationship between its elements, then we can get the class group and class number.
+
+\section{Character and Conductor}
+A \textbf{character} on a group $G$ is a group homomorphism from $G$ to the multiplicative group of a field( usually complex numbers field). The set $\hat{G}$ of these morphisms forms an abelian group under pointwise multiplication. Sometimes we only consider unitary characters, thus the image is in the unit circle.
+
+Now we consider the special character we mentioned above, \textbf{Dirichlet character}, which is defined as follows:
+\begin{definition}
+A Dirichlet character is any function $\chi$ from the integers $\mathbb{Z}$ to the complex numbers $\mathbb{C}$ such that $\chi$ has the following properties:
+\begin{enumerate}
+\item the function is periodic, i.e. $\exists k\in\mathbb{Z^+}$, s.t. $\chi(n)=\chi(n+k),\forall n$.
+\item If $\operatorname{gcd}(n,k)>1$, then $\chi(n)=0$; if $\operatorname{gcd}(n,k)=1$, then $\chi(n)\neq0$
+\item $\chi(mn)=\chi(m)\chi(n)$ for all integers $m,n$.
+\end{enumerate}
+\end{definition}
+The Dirichlet character has following properties: from the definition, we can directly get $\chi(1)=1$, the character is periodic with period $k$, we say that $\chi$ is a character to the \textbf{modulus} $k$. i.e. we have $$a\equiv b \mod k \Rightarrow \chi(a)=\chi(b)$$
+If $\operatorname{gcd}(a,k)=1$, then from Euler theorem, we have $a^{\phi(k)}\equiv 1 \mod k$, therefore we have $\chi(a^{\phi(k)})=\chi(1)=1$, on the other hand, $\chi(a^{\phi(k)})=\chi(a)^{\phi(k)}$. i.e. for all $a$ relatively prime to $k$, $\chi(a)$ is a $\phi(k)$-th complex root of unity. 
+
+A character $\chi$ is said to be \textbf{odd} if $\chi(-1)=-1$ and \textbf{even} if $\chi(-1)=1$. A character is called \textbf{principal} if it assumes the value $1$ for arguments coprime to its modulus and otherwise is 0. A character of the (Abelian) field can be viewed as the character of the Galois group of the field.
+
+For example, the character of a quadratic field $K$ is $\hat{K}=\{1,\chi\}$ (see \citep{Xianke2006ANT} etc.). the character $\chi$ is the same to the Legendre-Kronecker symbol (See Appendix \ref{chap:appA}).
+
+Then, we will introduce the conductor. Taking as base the field of rational numbers, the Kronecker–Weber theorem \ref{thm:kronecker} states that an algebraic number field $K$ is abelian over $\mathbb{Q}$ if and only if it is a subfield of a cyclotomic field $\mathbb{Q}(\zeta_n)$. The \textbf{conductor} of $K$ is then the smallest such $n$. 
+
+we can also define a conductor of character, i.e. the conductor of a character is the smallest modulus of $\chi$, More precisely, the conductor of a Dirichlet character $\chi$ modulo $k$ is the smallest positive integer $k_0$ which divides $k$ and which has the property that $\chi(n+k_0)=\chi(n)$ for all $n$. For this case, the $\chi$ is called the \textbf{primitive character of conductor} (or modulus) $f_{\chi}$. 
+
+The relation between the conductor of characters and Abelian number field is that, the conductor $f$ of the field $K$ is the least common multiple of conductor of character for Galois group of the Abelian number field, i.e. $$f=\operatorname{lcm}_{\chi\in\hat{K}}\{f_{\chi}\}.$$
+
+For example, for real quadratic field, $f$ is the fundamental discriminant of the field. For cyclic cubic field, $f$ is actually $e$ in Theorem \ref{thm:ccpoly}, i.e. the arithmetic square root of the discriminant of the cyclic cubic field.
+
+Let $p$ be an odd prime and $K/\mathbb{Q}$ a cyclic extension of degree $p$. Then it is well known \citep{maki1980determination} that the conductor of $K$ must have the form $f=p^e\cdot q_1q_2\cdot q_n$, where $e=0$ or $2$, $n\geq0$, and the $q_i$ are pairwise distinct rational primes satisfying $q_i\equiv1(\operatorname{mod} p)$ for $i=1,2,\dots,n$. The discriminant of $K$ is just a power of the conductor, $d_K=f^{p-1}$.
+
+A theorem called \textbf{conductor-discriminant formula} related to the conductor of a field and the discriminant of the field was first found by Dedekind. Then at the beginning of 1930's, E. Artin and H. Hasse found this general formula (See \citep{rzedowski2011conductor} etc.) which is showed following:
+\begin{proposition}\label{thm:conddisc}
+Let $K/F$ be a finite Galois extension of global fields with Galois group $G$, $$d(K/F)=\prod_{\chi\in\hat{G}}f_{\chi}^{\chi(1)},$$
+since for abelian field, $\chi(1)=1$, hence for $K$ is an abelian number field, then we have a special form, $$d(K)=(-1)^{r_2}\prod_{\chi\in\hat{G}}f_{\chi}$$
+\end{proposition}
+

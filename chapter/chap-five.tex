@@ -1,0 +1,212 @@
+\chapter{Cyclic Cubic Fields}
+\label{chap:chap-five}
+In this chapter, we start with a cubic polynomial with Galois group $A_3=C_3$. A famous work with only half page given by Seidelmann in 1917 \citep{seidelmann1917gesamtheit} showed the condition of the polynomial which satisfies the Galois group $C_3$. We have recovered the process to get this condition with a lemma which can be found in Cohen's book. Then we proceed to rearrange the explicit results for cyclic cubic field based on Cohen's book. At last, we will propose some examples on prime decomposition and computing class number.
+
+In additional, we have offered some special examples in the last section \ref{sec:ssccf} for cyclic cubic field without the standard form which we will show as follows. What's more, we also give a formula (See theorem \ref{thm:ccuformula}) for a type of cyclic cubic field which is given risen by the ideas of F.C. Orvay's \citep{orvay1991cyclic}.
+
+Firstly, we propose some preliminaries of cyclyc cubic field $K$. Let $K$ be a number field of degree 3 over $\mathbb{Q}$, i.e. a cubic field. If $K$ is Galois over $Q$, with $\operatorname{Gal}(K)=A_3$, then $K$ is so called a cyclic cubic field. let denote the Galois group of $K$ be $\langle\sigma\rangle$, where $\sigma^{-1}=\sigma^2$. Note that, for cyclic cubic field $K$ can only be totally real, based on the Lemma \ref{lem:signaturegal}.
+
+\section{Cubic Polynomial and Cyclic Cubic Field}
+The cyclic cubic fields can be viewed as generating by cubic polynomials. let's consider a polynomial of degree 3 which has the form
+$$f(x)=ax^3+bx^2+cx+d$$
+where $a\neq0$. There are two possible Galois groups for splitting field of cubic polynomial, namely $S_3$ and $A_3=C_3$.
+
+Now we will reduce the general cubic equation into a cubic trinomial by eliminating the quadratic term. We begin with the general cubic with rational coefficients $$ax^3+bx^2+cx+d$$
+and make the substitution $x=X-\frac{b}{3a}$ to get
+$$aX^3+\left(c-\frac{b^2}{3a}\right)X-\frac{bc}{3a}+d+\frac{2b^3}{27a^2}$$
+Since each of these coefficients are rational, we have now have a cubic trinomial in $\mathbb{Q}$. Also, since we are working over the rational numbers, we can easily divide by the leading coefficient of the $x^3$ term and obtain a monic cubic equation.
+
+The main distinction of cubics with a Galois group of $C_3$ is that the polynomial discriminant is equal to a square in $\mathbb{Q}$ which is a direct corollary of Theorem \ref{thm:discriminantsq}. Seidelmann uses this fact to give a form for the coefficients of a monic cubic trinomial with a Galois group of $C_3$. For $p,q\in\mathbb{Q}$, the equation
+$$f(x)=x^3-3(p^2+3q^2)x+2p(p^2+3q^2)$$
+where $f(x)$ is not reducible, represents all equations of degree 3 with a Galois group of $C_3$.
+
+In Seidelmann's paper (German version), there are only few rows to show the result but without proof, so now we give a brief proof of it. We assume that $K$ is a cyclic cubic field. Let $\theta$ be an algebraic integer such that $K=\mathbb{Q}(\theta)$, and let $f(x)=x^3+ax+b$ be the minimal polynomial of $\theta$ as we mentioned before. 
+
+One important consequence is necessary for calculation. Since any cyclic cubic field has at least one real embedding and since $K$ is Galois, all the roots of $f$ must be real(See Lemma \ref{lem:signaturegal}). Of course, we can get this from the square discriminant of $f$.
+
+Consider the primitive cube roots of unity $\zeta=e^{2\pi i/3}$, then it's easy to see that $K(\zeta)$ is a sextic field over $\mathbb{Q}$. What's more, it's also Galois with Galois group $\langle\sigma,\tau\rangle$, where $\sigma$ has been defined above which fixes $\zeta$, $\tau$ is the complex conjugation. We first prove the following lemma, one could find a similar lemma in Cohen's book  \citep{cohen1993course}.
+
+\begin{lemma}
+Set $\gamma=\theta+\zeta^2\sigma(\theta)+\zeta\sigma^2(\theta)\in K(\zeta)$, and $\beta=\gamma^2/\tau(\gamma)$. Then $\beta\in\mathbb{Q}(\zeta)$ and we have $$f(x)=x^3-\frac{e}{3}x-\frac{eu}{27},$$ where $e=\beta\tau(\beta)$ and $u=\beta+\tau(\beta)$. 
+\begin{proof}
+We have $\tau(\gamma)=\theta+\zeta\sigma(\theta)+\zeta^2\sigma^2(\theta)$, also we can verify that $$\sigma(\gamma)=\sigma(\theta)+\zeta^2\sigma^2(\theta)+\zeta\theta=\zeta\gamma$$ and $$\sigma(\tau(\gamma))=\sigma(\theta)+\zeta\sigma^2(\theta)+\zeta^2\theta=\zeta^2\tau(\gamma).$$ Hence, we have $$\sigma(\beta)=\sigma(\gamma^2/\tau(\gamma))=\gamma^2/\tau(\gamma)=\beta,$$ i.e. $\beta$ is invariant under the action of $\sigma$, so by the Galois theory $\beta\in\mathbb{Q}(\zeta)$.
+
+Note that $e$ and $u$ are norm and trace of $\beta$ in $\mathbb{Q}(\zeta)$ respectively, hence is rational numbers.
+
+Now we have the following matrix equation: 
+\begin{equation*}
+\left(\begin{array}{c}0\\ \gamma\\ \tau(\gamma)\end{array}\right)=\left(\begin{array}{ccc}1&1&1\\ 1&\zeta^2&\zeta\\ 1&\zeta&\zeta^2\end{array}\right)\left(\begin{array}{c}\theta\\ \sigma(\theta)\\ \sigma^2(\theta)\end{array}\right)
+\end{equation*}
+Then, we have 
+\begin{equation*}
+\left(\begin{array}{c}\theta\\ \sigma(\theta)\\ \sigma^2(\theta)\end{array}\right)=\frac{1}{3}\left(\begin{array}{ccc}1&1&1\\ 1&\zeta&\zeta^2\\ 1&\zeta^2&\zeta\end{array}\right)\left(\begin{array}{c}0\\ \gamma\\ \tau(\gamma)\end{array}\right)
+\end{equation*}
+From the formula, we have $$a=\theta\sigma(\theta)+\theta\sigma^2(\theta)+\sigma(\theta)\sigma^2(\theta)=-\frac{\gamma\tau(\gamma)}{3}$$ and $$b=-\theta\sigma(\theta)\sigma^2(\theta)=-\frac{\gamma^3+(\tau(\gamma))^3}{27}.$$
+Note that $\tau(\beta)=\tau(\gamma^2/\tau(\gamma))=\tau(\gamma^2)/\gamma=(\tau(\gamma))^2/\gamma$. We can easily verify that the norm and trace of $\beta$ coincide $e$ and $u$.
+\end{proof}
+\end{lemma}
+
+Now since $\mathbb{Q}(\zeta)=\mathbb{Q}(\sqrt{-3})$, we can assume that $\beta=p+q\sqrt{-3}\in\mathbb{Q}(\zeta)$, where $p,q\in\mathbb{Q}$ then $e=\operatorname{N}(\beta)=(p+q\sqrt{-3})(p-q\sqrt{-3})=p^2+3q^2$, $u=\operatorname{Tr}(\beta)=2p$, hence we have 
+$$f(x)=x^3-\frac{p^2+3q^2}{3}x-\frac{2p(p^2+3q^2)}{27},$$
+which is equivalent to $f(x)=x^3-3(p^2+3q^2)x-2p(p^2+3q^2)=x^3-3ex-eu$ up to scaling. (The sign of the constant term's coefficient can be change by replace $p$ into $-p$.)
+
+\section{Discriminant and Integral Basis}
+Now, for simplicity, up to suitable scaling, we use $f(x)=x^3-3ex-e u$, where wlog, we assume that $e,u$ are rational integer. Note that then $\beta$ can be written down an algebraic integer of $\mathbb{Q}(\zeta)$,i.e. we have $\beta=\frac{u+v\sqrt{-3}}{2}, u,v\in\mathbb{Z}$. What's more, $u$ cannot be divisible by 3 since $\beta$ is not divisible by the ramified prime. Hence, by suitable choosing $\beta$ or $-\beta$, we may assume that $u\equiv2(\operatorname{mod} 3).$
+In this notation, $e=\frac{u^2+3v^2}{4}$, then $e\equiv 1(\operatorname{mod} 3)$. In fact, $e$ is the product of distinct primes which congruent to 1 modulo 3 (including $e=1$) \citep{cohen1993course}.
+i.e. we have following lemma:
+\begin{lemma}\label{basiccubic}
+For any cyclic cubic field $K$, there exists a unique pair of integer $e,u$ such that $e$ is equal to a product of distinct primes congruent to 1 modulo 3, $u\equiv2(\operatorname{mod} 3)$, $v>0$ and such that $K=\mathbb{Q}(\theta)$, where $\theta$ is a root of the polynomial $$f(x)=x^3-3ex-eu.$$
+Moreover, the conjugates of $\theta$ are given by following formulas:
+\begin{eqnarray}\label{eqn:conjugatescub}
+\sigma(\theta)&=&\frac{-2e}{v}-\frac{u+v}{2v}\theta+\frac{\theta^2}{v},\\
+\sigma^2(\theta)&=&\frac{2e}{v}+\frac{u-v}{2v}\theta-\frac{\theta^2}{v}
+\end{eqnarray}
+\begin{proof}
+For simplicity, we just give the proof of the conjugates. Firstly, since the discriminant of $x^3+ax+b$ is equal to $-(4a^3+27b^2)$ (Also can refer the Appendix \ref{prop:disctri}), hence the discriminant of $f$ is equal to $$-(4(-3e)^3+27e^2u^2)=-27e^2(u^2-4e)=81e^2v^2.$$
+Then from the definition of Polynomial we have $d=(\theta-\sigma(\theta))(\sigma(\theta)-\sigma^2(\theta))(\sigma^2(\theta)-\theta)=\pm9ev$. If necessary, by exchanging the $\sigma(\theta), \sigma^2(\theta)$, we may assume that $$\sigma(\theta)-\sigma^2(\theta)=\frac{9ev}{(\theta-\sigma(\theta))(\theta-\sigma^2(\theta))}=\frac{9ev}{f'(\theta)}=9ev/(3\theta^2-3e).$$
+Now we should simplify this equation. Since $f(\theta)=\theta^3-3e\theta-eu=0$, hence we can use the extended Euclidean algorithm with $A(x)=x^3-3ex-eu$ and $B(x)=x^2-e$, then we got the inverse of $B$ modulo $A$ is equal to $(2x^2-ux-4e)/(3v^2e)$ (note that $\operatorname{gcd}(A,B)=1$ for there is no multiple roots in $f(x)$.), hence $$\sigma(\theta)-\sigma^2(\theta)=\frac{2\theta^2-u\theta-4e}{v}$$
+On the other hand, since the trace of $\theta$ is equal to 0, so we have $\sigma(\theta)+\sigma^2(\theta)=-\theta$, we can get the final result of $\sigma(\theta)$ and $\sigma^2(\theta)$ from above equations.
+\end{proof}
+\end{lemma}
+
+The following theorem\citep{cohen1993course} shows the integral basis and discriminant of cyclic cubic field:
+\begin{theorem}\label{thm:cbfintegralnor}
+Let $K=\mathbb{Q}(\theta)$ be a cyclic cubic field where $\theta$ is a root of $x^3-3ex-eu=0$ and where, as above, $e=\frac{u^3+3v^2}{4}$ is equal to a product of distinct primes (namely $t$ distinct primes) congruent to 1 modulo 3, $u\equiv2(\operatorname{mod} 3)$, then
+\begin{enumerate}
+\item Assume that $3\nmid v$, i.e. 3 is ramified in $K$. Then $(1,\theta,\sigma(\theta))$\footnote{$\sigma$ is given by lemma \ref{basiccubic}.} is an integral basis of $K$ and the discriminant of $K$ is equal to $(9e)^2$. What's more, there exists up to isomorphism exactly $2^t$ cyclic cubic fields of discriminant $(9e)^2$ defined by the polynomial.
+\item Assume that $3\mid v$, i.e. 3 is unramified in $K$. Then let $\theta'=(\theta+1)/3$, $(1,\theta',\sigma(\theta'))$ is an integral basis of $K$ and the discriminant of $K$ is equal to $e^2$. What's more, there exists up to isomorphism exactly $2^{t-1}$ cyclic cubic fields of discriminant $e^2$ defined by the polynomial.
+\end{enumerate}
+\end{theorem}
+
+For the first case, not that $\theta^2=v\sigma(\theta)+((u+v)/2)\theta+2e$ from the result of $\sigma(\theta)$, so the $\mathbb{Z}$-module $O_K$ generated by $(1,\theta,\sigma(\theta))$ contains $\mathbb{Z}[\theta]$. So the index $[O_K:\mathbb{Z}[\theta]]=v$.
+For the second case, ie, if the prime 3 is unramified in $K$, then we can write the minimal polynomial of $\theta'$, i.e. $\theta'$ is a root of the equation with coefficients in $\mathbb{Z}$ \begin{equation} f(x)=x^3-x^2+\frac{1-e}{3}x-\frac{1-3e+eu}{27},\end{equation} where  $e=\frac{u^2+27v'^2}{4},u\equiv2(\operatorname{mod} 3), u\equiv v' (\operatorname{mod} 2), v'>0$, and $e$ is the product of distinct primes congruent to 1 modulo 3. For the same reason, we have $[O_K:\mathbb{Z}[\theta']]=v/3=v'$.
+
+
+With new notation on $e,u,v$, Cohen's book\citep{cohen1993course} given us another theorem as follows:
+\begin{theorem}\label{thm:ccpoly}
+All cyclic cubic fields $K$ are given exactly once (up to isomorphism) in the following way:
+\begin{enumerate}
+\item If the prime 3 is ramified in $K$, then $K=\mathbb{Q}(\theta)$ where $\theta$ is a root of the equation with coefficients in $\mathbb{Z}$ \begin{equation} f(x)=x^3-\frac{e}{3}x-\frac{e u}{27},\end{equation} where $e=\frac{u^2+27v^2}{4},u\equiv6(\operatorname{mod} 9),3\nmid v, u\equiv v (\operatorname{mod} 2), v>0$, and $e/9$ is the product of distinct primes congruent to 1 modulo 3 (could be 1).
+\item If the prime 3 is unramified in $K$, then $K=\mathbb{Q}(\theta)$ where $\theta$ is a root of the equation with coefficients in $\mathbb{Z}$ \begin{equation} f(x)=x^3-x^2+\frac{1-e}{3}x-\frac{1-3e+eu}{27},\end{equation} where  $e=\frac{u^2+27v^2}{4},u\equiv2(\operatorname{mod} 3), u\equiv v (\operatorname{mod} 2), v>0$, and $e$ is the product of distinct primes congruent to 1 modulo 3.
+\item In both cases, the discriminant of $f$ is equal to $e^2v^2$ and the discriminant of number field $K$ is equal to $e^2$.
+\item Conversely, if $e$ is equal to 9 times the product of $t-1$ distinct primes congruent to 1 modulo 3, (resp. is equal to the product of $t$ distinct primes congruent to 1 modulo 3), then there exists up to isomorphism exactly $2^{t-1}$ cyclic cubic fields of discriminant $e^2$ defined by the polynomials $f(x)$ given in (1) (resp. (2)).
+\end{enumerate}
+\end{theorem}
+
+For this case, the integral basis is showed as follows.
+\begin{theorem}\label{thm:ccpolycon}
+With the notation in Theorem \ref{thm:ccpoly}, the conjugates of $\theta$ are given by the formulas:
+\begin{enumerate}
+\item If 3 is ramified in $K$,(i.e. in case (1)) then $$\sigma^{\pm1}(\theta)=\mp\frac{2e}{9v}+\frac{-3v\mp u}{6v}\theta\pm\frac{\theta^2}{v};$$
+\item If 3 is unramified in $K$,(i.e. in case (2)) then $$\sigma^{\pm1}(\theta)=\frac{9v\pm(u+2-4e)}{18v}+\frac{-3v\mp (u+4)}{6v}\theta\pm\frac{\theta^2}{v}$$
+In all cases, $(1,\theta,\sigma(\theta))$ is an integral basis of $K$. 
+\end{enumerate}
+\end{theorem}
+
+\section{Prime Decomposition}\label{sec:ccf-decom}
+Without loss of generality, we use the symbol in theorem \ref{thm:ccpoly} for simplicity. The situation of the decomposition of prime number in cyclic cubic field is quite easy, from the transitivity properties of Galois group, there are only three cases for decomposition, inert, totally ramified, splits completely. 
+
+From the fundamental theorem of ramification, i.e. theorem \ref{thm:ramification}, it follows that if $p|e$, i.e. $p$ is one of the prime number (including 3) lies in $e$'s factorization expression, then $p$ is totally ramified. If $p\nmid e$ , then $p$ is unramified, even from theorem \ref{thm:unramified}, we can not determine the inert or splits completely. However if $p\nmid v$, then we can use the theorem \ref{thm:kummer} to determine the prime decomposition. In fact, the result is similar to quadratic field but change the Kronecker symbol to a cubic residue symbol, i.e. consider the congruence $x^3\equiv e(\operatorname{mod} p)$ is solvable or not.(or equivalently $p^{(e-1)/3}\equiv 1(\operatorname{mod} p)$).
+
+If $p\mid v$, then $f$ has at least a double root modulo $p$. If $f$ has a double root, but not a triple root, then $f$ also has a simple root which corresponds to a prime ideal of degree 1. In this case $pO_K$ is the product of three ideals of degree $1$, i.e. splits completely. Finally, if $f$ has a triple root modulo $p$, we must apply other techniques, see Cohen's book 6.2.5 \citep{cohen1993course}. 
+
+
+\section{Units and Class Number}
+From Dirichlet Unit Theorem, since $K$ is a real field, hence $\mu(K)=\{\pm1\}$ and we have $U(K)=\{\pm1\}\times{\mathbb{Z}^2}$. A unit $\tau$ of $K$ is called the fundamental unit of $K$ if and only if $\{-1,\tau,\sigma(\tau)\}$ generate the group of units of $K$.
+From the property of units, we have $\operatorname{N}(\tau)=\pm1$. The only fundamental units are $\pm\tau^{\pm1},\pm(\sigma(\tau))^{\pm1},\pm(\sigma^2(\tau))^{\pm1}$. The fundamental unit $\tau$ is uniquely determined except for taking conjugates and inverses.
+
+This fundamental system of units can be calculated by means of generalized continued fraction algorithms by Voronoi \citep{voronoi1896generalization}, which have been interpreted geometrically by Delone and Faddeev \citep{delone1964theory}.
+
+Harvey Cohn and Saul Gorn first give the units of 45 cyclic cubic fields of discriminants, where $e$ is the prime congruent to 1 modulo 3 between 7 to 499. 
+
+Then, a table of class numbers and units in cyclic cubic fields with $e<4000$\footnote{this $e$ is the same to the one in Theorem \ref{thm:ccpoly}} has been given by Marie-Nicole Gras \citep{gras1975methodes}, after that Veikko Ennola and Reino Turunen \citep{ennola1985cyclic} have constructed an extended table for $e<16000$. 
+
+
+\section{Conductor of Cyclic Cubic Field}
+From the definition of conductor and some results in chapter \ref{chap:chap-two}, we can get the conductor of a cyclic cubic field $f_3$ is of the form \citep{maki1980determination} 
+
+$$f_3=\left\{\begin{array}{cc}q_0q_1\cdots q_n& if 3\nmid f_3\\ 9q_1\cdots q_n&if 3\mid f_3\end{array}\right.$$
+where $q_i$ are pairwise distinct rational primes satisfying $q_i\equiv1(\operatorname{mod} 3)$ for $i=1,2,\dots,n$. And the discriminant of $K_3$ is $d_3=f_3^2$.
+
+\section{Examples}
+In this section, we would propose some examples on prime decomposition and computing class number.
+
+\subsection{An Example for Prime Decomposition}
+\begin{example}
+Consider $K=\mathbb{Q}(\theta)$, where $\theta$ is a root of $f(x)=x^3-93x-124$, it's easy to compute the discriminant of it is $e^2=31^2=961$, and $v=2$. Hence, we have $p=31$ is ramified totally in $O_K$, while the other special prime is $p=2$, since $2\mid v$. Consider $f(x)\equiv x(1+x)^2 \mod 2$, hence $p=2$ is splits completely in $O_K$. Other prime numbers can be determined by the Kummer's theorem \ref{thm:kummer}. Note that for $p=2$, this decomposition in $\mathbb{F}_2$ has no meaning in Dedekind's criterion \ref{thm:Dedekindcri}. 
+\end{example}
+
+\subsection{Some Examples for computing class group}
+First of all, we consider the class group of the the number field $K=\mathbb{\theta}$, where $\theta$ is a root of $f(x)=x^3-3x+1$, since the discriminant of the polynomial is $81=9^2$, hence $K$ is a cyclic cubic field. From Theorem \ref{thm:cbfintegralnor}, we get the integral basis of the field is $(1,\theta,\sigma(\theta))=(1,\theta,\theta^2-2)=(1,\theta,\theta^2)$, i.e. it has a power integral basis, $O_K=\mathbb{Z}[\theta]$. The discriminant of the field is $d(K)=(9)^2=81$, then from the definition of Minkowski's bound, we have $C_K=\frac{2}{9}|81|^{1/2}=2$, hence $Cl(K)=\langle[\wp]|\wp|2\rangle$.
+Now we consider the decomposition of 2, for $p=2$, $f(x)\equiv x^3+x+1 (\operatorname{mod} 2)$ is an irreducible polynomial, i.e. $2$ is inert in $K$. Hence $Cl(K)=\{1\}$, and $h(K)=1$.
+
+Then we see another example, the number field $K=\mathbb{Q}(\theta)$ with $\theta$ is a root of $f(x)=x^3-x^2-4x-1$. This is a standard form of cyclic cubic field with the secdond case of Theorem \ref{thm:ccpoly}, we yield that $e=13,u=5,v=1$ for this case. Hence, the discriminant of the field is $13^2=169$, with $v=[O_K:\mathbb{Z}[\theta]]=1$, hence for any case, we can use theorem \ref{thm:kummer}, since $K$ is monogenic with integral basis $(1,\theta,\theta^2)$. From the definition of Minkowski's bound, we have $C_K=\frac{2}{9}|169|^{1/2}=2.889<3$, hence just consider $p=2$. Since $f(x)\equiv x^3+x^2+1 (\operatorname{mod} 2)$ is irreducible, i.e. we have $2$ is inert in $K$. Hence $Cl(K)=\{1\}$, and $h(K)=1$.
+
+\section{Some Special Cyclic Cubic Fields}\label{sec:ssccf}
+In this section, we'd like to share some cyclic cubic fields which have been researched by some mathematicians.
+\subsection{Cubic Trinomials}
+First, we would like to introduce F.C. Orvay's work \citep{orvay1991cyclic}. Some important results for the structure of cyclic cubic fields with cubic trinomials are listed as followings. For the sake of brevity, we just write down these lemma without proofs. These results can be found in F.C. Orvay's article.
+
+\begin{lemma}
+Let $K=\mathbb{Q}(\theta)$, $\operatorname{Irr}(\theta,\mathbb{Q})=x^3-px+p$ \footnote{Note that this is not the standard form of cyclic cubic field, however, it is isomorphisic to $f(x)=x^3-3px-(4p-27)p$.}, $p=3^{\delta}p_1\cdots p_r, p_i\equiv1(\operatorname{mod} 3)$ (distinct), $\delta\in\{0,2\}$, $4p-27\in\mathbb{Z}^2$, then the following hold:
+\begin{enumerate}
+\item $d(K)=p^2$, $K$ is monogenic\footnote{with power integral basis} with integral basis $\{1,\sigma,\sigma^2\}$.
+\item $\{\sigma,\sigma'\}$ is a system of fundamental units of $K$, where $\sigma=(m+\theta_1)/3$, $\sigma'$ denote the conjugate of $\sigma$, $\theta_1=(4p-9\theta-6\theta^2)/\sqrt{4p-27}$ and $m=(\sqrt{4p-27}-3)/2$.
+\end{enumerate}
+\end{lemma}
+
+This lemma is suitable for $p=9,13,19,37,63,79,97,117,139,163,\cdots$.
+
+\begin{lemma}
+Let $K=\mathbb{Q}(\theta)$, $\operatorname{Irr}(\theta,\mathbb{Q})=x^3-px+pq, p=p_1\cdots p_r, p_i\equiv1(\operatorname{mod} 3)$ (distinct),$q>2$, $4p-27q^2=1$, then the following hold:
+\begin{enumerate}
+\item $d(K)=p^2$, $K$ is monogenic with integral basis $\{1,\theta,\theta^2\}$.
+\item $\{\mu,\mu'\}$ is a system of fundamental units of $K$, where $\mu=2+3\sigma+3\tau$, $\sigma=(-1+\theta_1)/3$,$\tau=(\sigma^2+((q+1)/2)\sigma)/q$, $\theta_1=4p-9q\theta-6\theta^2$ and $\mu'=-1-6\sigma+3\tau$.
+\item $\operatorname{Irr}(\mu,\mathbb{Q})=x^3-3((1+9q)/2)x^2+((27q-3)/2)x+1$.
+\item $\{1,\sigma,\tau\}$ is another integral basis.
+\end{enumerate}
+\end{lemma}
+
+This lemma is suitable for $p=61,331,547,817,1141,\cdots$.
+
+For the first lemma, on choosing $p$ more precisely , we have found a results as follows:
+\begin{theorem}\label{thm:ccuformula}
+For any integer $k$, set $p=k^2+k+7$. The polynomial  $X^3-p X+p$ is irreducible over $Q$ and has Galois group $A_3$.  
+\begin{proof}
+For any odd number $p$, $x^3-px+p\equiv x^3+x+1 (\operatorname{mod} 2)$, hence $x^3-px+p$ is irreducible over $\mathbb{Q}$. Its discriminant is $(-4)(-p)^3-27p^2=p^2(4p-27)$. To have a Galois group $A_3$, we need $4p-27\in\mathbb{Z}^2$. Writing $c^2=4p-27$, then we have $p=\frac{1}{4}(c^2+27)$. To make it integral we need $c$ odd, and write $c=2k+1$, then $$p=\frac{1}{4}(4k^2+4k+28)=k^2+k+7.$$ For any $k,k^2+k+7$ is odd so if we defined this expression to be $p$, then $x^3-px+p$ has Galois group $A_3$ over $\mathbb{Q}$.
+\end{proof}
+\end{theorem}
+
+\subsection{Simplest Cubic Fields}
+There is another special class of cyclic cubic fields called the simplest cubic fields first studied by Daniel Shanks \citep{shanks1974simplest}, Shanks computed the discriminant of the polynomial, fundamental units of the field, the regulator and some class number. A recent job for this type of cyclic cubic fields can be find in Lang's article \citep{lang2009properties}.
+
+The simplest cubic field is defined by the following polynomial, 
+\begin{equation}
+f(x)=x^3-ax^2-(a+3)x-1,\label{eqn:simpcubic}
+\end{equation} where $a\in\mathbb{Z}$. One can calculate the discriminant from the formula of the discriminant of polynomials (Refer to \ref{prop:disctri}), then $\operatorname{Disc}(f)=(a^2+3a+9)^2$.
+
+D. Shanks only focuses on that $e:=a^2+3a+9$ is a prime, then from theorem \ref{thm:ccpoly}, there is only one cyclic cubic satisfies this polynomial equation up to isomorphism, and $e$ is also discriminant of the field.
+
+What's more, one can verify that if $\theta$ is a root of equation \ref{eqn:simpcubic}, then $\theta'=1/(\theta+1)$ and $\theta''=1/(\theta'+1)$ are also a root of the equation \ref{eqn:simpcubic}.
+And since $\theta(\theta^2-a\theta-a-3)=1$, i.e. $\theta$ is a unit, so is $\theta'$, then $1+\theta=-1/\theta'$ is also a unit. In fact, $(\theta,1+\theta)$ are independent fundamental
+units, which can be verified by Godwin's criterion \citep{godwin1960determination}. More generally, we have following theorem which could be found in Lang's article \citep{lang2009properties}.
+\begin{theorem}
+If $e:=a^2+3a+9$ is square-free, then $(1,\theta,\theta^2)$ is an integral basis of $K$, and $(-1,\theta,\theta')$ generates the full group of units $O_K$.
+\end{theorem}
+
+A simple result about decomposing prime is that $2$ is inert in $K$, since $O_K=\mathbb{Z}[\theta]$ and $\bar{f}(x)\equiv x^3+x^2+1 (\operatorname{mod} 2)$ when $m$ is odd, while $\bar{f}(x)\equiv x^3+x+1 (\operatorname{mod} 2)$ when $m$ is even.
+
+The explicit solution (a positive root) of equation \ref{eqn:simpcubic} is $$\theta=\frac{1}{2}(2\sqrt{e}\cos\phi+a),$$ where $$\phi=\frac{1}{3}\arctan\frac{\sqrt{27}}{2a+3}$$
+
+As for the class number of them, D. Shanks \citep{shanks1974simplest} finally give a formula to compute them:
+\begin{equation}
+h=\frac{a^2+3a+9}{4\log^2 a}\left[1-\frac{3}{a\log a}+o(\frac{1}{a^2})\right]\prod_{p=2}^{\infty}f(p).
+\end{equation}
+where $f(p)$ is defined by
+\begin{equation}
+f(p)=\left\{\begin{array}{ll} 1& \text{for } p=e,\\ \left(\frac{q}{q-1}\right)^2 & \text{for } p^{(e-1)/3}\equiv 1(\operatorname{mod} p),\\
+\frac{q^2}{q^2+q+1} & \text{otherwise}.
+\end{array}\right.
+\end{equation}
+
+Shanks give a table of class number for $-1\leq a\leq 410$, where $e$ is a prime.

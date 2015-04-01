@@ -1,0 +1,26 @@
+\chapter{Resultant and Discriminant of a Polynomial}
+\label{chap:appB}
+We begin with some useful definitions regarding polynomials. The reason why we refer resultant is that we can calculate the discriminant of the polynomial through this tool, especially when the degree of polynomial is large. First of all, we give a definition of resultant\citep{healy2002resultants}:
+\begin{definition}
+Let $R$ be an integral domain, given two polynomials $f(x),g(x)\in R[x]$ with roots $\alpha_1,\dots,\alpha_m$ and $\beta_1,\dots,\beta_n$ respectively, then the resultant $\operatorname{Res}(f,g)$ of $f,g$ is defined to be $$\operatorname{Res}(f,g)=l(f)^nl(g)^m\prod_{i,j}(\alpha_i-\beta_j)$$ which is equivalent to both $$\operatorname{Res}(f,g)=l(f)^n\prod_{i}^m g(\alpha_i)$$ and $$\operatorname{Res}(f,g)=(-1)^{n m}l(g)^m\prod_{i}^n f(\beta_i)$$
+\end{definition}
+From this definition, on can easily see that $f,g$ have a common root in some if and only if $\operatorname{Res}(f,g)=0$.
+An important proposition shows the relationship of this definition to the \textbf{Sylvester's matrix} (Some books take that as definition): Let $S$ be the Sylvester's matrix of polynomials $f(x)$ and $g(x)$, then $\operatorname{Res}(f,g)=\det(S)$.
+
+Also for convenience, I choose a definition of normalized discriminant \citep{janson2007resultant} of polynomial as follows in this paper.
+
+\begin{definition}
+Let $f$ be a polynomial of degree $n\geq1$ with coefficients in a field $F$. Let $F_1$ be an extension of $F$ where $f$ splits, and let $r_1,\dots,r_n$ be the roots of $f$ in $F_1$. Then the discriminant of $f$ is $$\operatorname{Disc}(f):=\prod_{1\leq i<j\leq n}(r_i-r_j)^2$$
+\end{definition}
+
+Note further that $\operatorname{Disc}(cf)=\operatorname{Disc}(f)$ for any nonzero constant. The following theorem give the relation between the discriminant and resultant.
+
+\begin{proposition}\label{prop:disctri}
+Let $f=a_nx^n+\cdots+a_0$ be polynomial of degree $n\geq1$ with coefficients in a field $F$. The the discriminant of $f$ is given by 
+$$\operatorname{Disc}(f)=(-1)^{n(n-1)/2}a^{-(2n-1)}_n \operatorname{Res}(f,f')$$
+\end{proposition}
+
+\begin{example}\label{for:nxpxq}
+Let $f(x)=x^n+px+q$ for $n\geq2$, then $f'(x)=nx^{n-1}+p$, then from the Proposition \ref{prop:disctri}, we have $$\operatorname{Disc}(f)=(-1)^{(n-1)(n-2)/2}(n-1)^{n-1p^n}+(-1)^{n(n-1/2)}n^nq^{n-1}$$
+\end{example}
+

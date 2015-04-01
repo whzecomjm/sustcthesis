@@ -1,0 +1,107 @@
+\chapter{Galois Extensions of Function Fields}
+\label{chap:chap-eight}
+
+L{\"u}roth's theorem is one of elementary results in the classical algebra which we can find in a textbook by Van Der Waerden \citep{van1967algebra}. L{\"u}roth \citep{luroth1875beweis} proved L{\"u}roth's theorem in case $K=\mathbb{C}$ in 1876. It was first proved for general fields $K$ by Steinitz \citep{steinitz1910algebraische} in 1910, by the above argument. An precisely elementary algebraic proof using field theory and Gauss's Lemma was given by G. Bergman as a series of exercises for students. The L{\"u}roth's theorem is showing as follows:
+\begin{theorem}[L{\"u}roth's Theorem]
+Let $K$ and $E$ be fields such that $K\subsetneq E \subset K(x)$, where $x$ is transcendental extension of $K$. Then $E=K(u)$ for $u\in K(x)$, and $K(x)$ is finite-dimensional over $E$.
+\end{theorem}
+
+In our work, we are focus on a special case in L{\"u}roth theorem, i.e. we add a condition on the field extension $K(x)/E$, namely we suppose that $K(x)/E$ is Galois. And for this case, we will first give a simple proof of the similar results. Of course, we won't use the result of L{\"u}roth's thorem. Then, we will give a explicit form of the invariant rational function due to the Galois group.
+
+\section{Existence Theorem}
+First, we'd like to give the following theorem: 
+\begin{theorem}\label{thm:luroth-zwc}
+Let $K$ and $E$ be fields such that $K\subsetneq E \subset K(x)$, where $x$ is transcendental extension of $K$ and $K(x)$ is Galois over $E$. Then $E=K(u)$ for $u\in K(x)$.
+\end{theorem}
+
+For simplicity, we start with a definition of height of a rational function.
+
+\begin{definition}[height]
+The \textbf{height} of a rational function $u(x)=f(x)/g(x)$ in a rational function field is defined to be $$\operatorname{ht(u)}=\max\{\deg(f(x)),\deg(g(x))\}$$ 
+\end{definition}
+
+Gauss's Lemma is necessary in our proof, which is either of two related statements about polynomials with integer coefficients. The first one is the primitivity statement and the second is the irreducible statement \citep{zieve2011mathematics}.
+
+\begin{lemma}[Gauss's Lemma]
+Let $R$ be a unique factorization domain.
+\begin{enumerate}
+\item The product of two primitive polynomials is primitive, what's more, for $f,g\in R[x]$, we have $C(f)C(g)= C(fg)$, where $C(f)$ is the great common divisor of the coefficients of $f$.
+\item If $f\in R[x]\backslash R$ is irreducible in $R[x]$, then $f$ is irreducible in $Frac(R)[x]$.
+\end{enumerate}
+\end{lemma}
+
+We give the following lemma \ref{lem:lurothfinitedim} which solve the finiteness of the extension in L{\"u}roth's theorem and our special case.
+
+\begin{lemma}\label{lem:lurothfinitedim}
+If $K$ is a field and $u(x)\in K(x)\backslash K$, then $[K(x):K(u)]=\operatorname{ht}(u)$.
+\begin{proof}
+Write $u(x)=a(x)/b(x)$, where $a,b\in K[x]$ are coprime. Then $x$ is a root of the polynomial $f:=a(T)-u(x)b(T)\in K(u)[T]$. Since this polynomial has degree one in $u$, then the coprimality of $a(T),b(T)$ implies that $f$ is irreducible in $(K[T])[u]=(K[u])[T]$. 
+From Gauss's Lemma, we have that $f$ is irreducible in the fractional polynomial field $K(u)[T]$, i.e. $f$ is a constant multiple of the minimal polynomial of $x$ over $K(u)$. i.e. we have $[K(x):K(u)]=\deg_{t}(f)=\operatorname{ht}(u)$. 
+\end{proof}
+\end{lemma}
+
+Since $K(x)/E$ is Galois, hence is a finite separable and normal extension. From the following so called primitive element theorem , we could know that $K(x)/E$ is finite simple extension.
+
+\begin{lemma}[Primitive Element Theorem]
+Let $E\supseteq F$ be a finite degree separable extension. Then $E=F(\alpha)$ for some $\alpha\in E$.
+\end{lemma}  
+
+\begin{proof}[Proof of Theorem \ref{thm:luroth-zwc}]
+Since $K(x)/E$ is Galois, so is finite simple extension (simple algebraic extension).Since $K(x)=E(x)$, i.e. $K(x)$ can be viewed as a simple algebraic extension by adding $x$ into $E$. Then we may assume that $p(t)$ be the minimal polynomial of $x$ over $E$, $$p(t)=t^n+r_{n-1}t^{n-1}+\cdots+r_1t+r_0,(r_i\in E\subset K(x)).$$
+Consequently, $n=\deg_t(p)=[K(x):E]$.
+Let rewrite $r_i=a_i/b_i,(i=0,1,\dots,n-1)$ where $a_i,b_i\in K[x]$, and $a_i$ is coprime to $b_i$.  Then $p(t)$ could be multiplied by the l.c.m. of the $b_i$'s in order to get a primitive polynomial over the ring $K[x]$, namely $$q(t)=c_nt^n+c_{n-1}t^{n-1}+\cdots+c_0\in K[x][t].$$ Here, we get $\deg_t(q)=\deg_t(p)$
+
+Note that (at least) one of the $r_i$'s, i.e. $u:=r_k\in E$, doesn't not belong to $K$, else $x$ would be algebraic over $K$. Let's consider the polynomial:
+$$R(x,t)=a_k(t)b_k(x)-a_k(x)b_k(t)\in K[x,t]$$ 
+%and $$S(t)=R(x,t)/b_k(x)=a_k(t)-r_k(x)b_k(t)\in E[t]$$ 
+Since $R(x,x)=0$, $q(t)$ is the minimal polynomial of $x$, then $q(t)$ divides 
+%$S(t)$ in $K(x)[t]$, then it also divides 
+$R(x,t)$ in $K(x)[t]$. Since $K[x]$ is a UFD, hence by Gauss's lemma, $q(t)$ divides $R(x,t)$ in $K[x,t]$. Therefore $\deg_x(R)\geq\deg_x(q)$. 
+
+On the other side, $$\deg_x(R)\leq\operatorname{ht}(u)=\max(\deg a_k,\deg b_k)\leq\max(\deg c_k,\deg c_n).$$ Therefore $\deg_x(R)\leq\deg_x(q)$. Hence, $\deg_x(R)=\deg_x(q)$, that is we have $$R(x,t)=q(t)m(t),$$ where $m\in K[t]$.
+
+Then we will show that $m(t)$ is constant, i.e. $m(t)\in K$. Assume on the contrary $\deg(m)>0$, then we have $$a_k(t)=q_1(t)m(t)+l_1(t),b_k(t)=q_2(t)m(t)+l_2(t)$$ with $\deg(l_i)<\deg(m)(i=1,2)$. Since $m(t)$ divides $a_k(t)b_k(x)-a_k(x)b_k(t)$, hence also divides  $l_1(t)b_k(x)+a_k(x)l_2(t)$, which is possible only if $$l_1(t)b_k(x)+a_k(x)l_2(t)=0.$$ However, last equation is impossible since $a_k$ is coprime to $b_k$, and neither of them is constant. A contradiction! Hence, $\deg(m)=0$ and $m\in K$.
+
+Write $q(t)=c\left(a_k(t)b_k(x)-a_k(x)b_k(t)\right),c\in K$, $[K(x):E]=\deg_t(q)=\operatorname{ht}(u)$. From lemma \ref{lem:lurothfinitedim}, we have $[K(x):K(u)]=\operatorname{ht}(u)$, hence we have $[K(x):K(u)]=[K(x):E]$. Since $u\in E$, then $E=K(u)=K(r_k)$.
+\end{proof}
+
+\section{Explicit Form of Invariants}
+From now on, we have prove the existence of the $u(x)\in K(x)$, such that $E=K(u)$. Next, we will show the explicit form of $u$. Assume that $\operatorname{Gal}(K(x)/E)=\operatorname{Gal}(K(x)/(K(u)))=\{\sigma_1,\sigma_2,\dots,\sigma_n\}$. 
+
+In fact, we have an easy proposition that if $F\subset E\subset K$ are fields, then $\operatorname{Aut}(K/E)$ is a subgroup of $\operatorname{Aut}(K/F)$, since the operation (composition) is the same
+and any automorphism which fixes $E$ must also fix the smaller field $F$. So, we have 
+$$\operatorname{Gal}(K(x)/E)=\operatorname{Aut}(K(x)/E)\subset\operatorname{Aut}(K(x)/K).$$
+
+Next we will show that the automorphism group of a rational function field $K(x)$ is $\operatorname{PGL}(2,K)$. 
+From lemma \ref{lem:lurothfinitedim}, let $u=\frac{ax+b}{cx+d}\in K(x)$, where $a,b,c,d\in K$ and $ad-bc\neq0$, then $[K(x)/K(u)]=\operatorname{ht}(u)=1$, i.e. $K(x)=K(u)$. On the other side, if we have $K(x)=K(u)$, i.e. $[K(x):K(u)]=1$, then $\operatorname{ht}(u)=1$. $u=\frac{P(x)}{Q(x)}$, where $\max{\deg(P(x)),\deg(Q(x))}=1$, then $u=\frac{ax+b}{cx+d}$, where $a,b,c,d\in K$ and $ad-bc\neq0$. i.e. We have $K(x)=K(u)$ if and only if $u\in \frac{ax+b}{cx+d}$, where $a,b,c,d\in K$ and $ad-bc\neq0$. 
+i.e. we have the automorphism group of $K(x)$ is $$\operatorname{Aut}(K(x)/K)=\left\{x\mapsto\frac{ax+b}{cx+d}\mid a,b,c,d\in K, ad\neq bc\right\}.$$
+
+Since general linear group is $$\operatorname{GL}(2,K):=\left\{\begin{pmatrix}a&b\\c&d\end{pmatrix}\mid a,b,c,d\in K, ad-bc\neq0\right\},$$ then consider the group homomorphism: $\operatorname{GL}(2,K)\rightarrow \operatorname{Aut}(K(x)/K)$, where $$\psi: \begin{pmatrix}a&b\\c&d\end{pmatrix}\mapsto \frac{ax+b}{cx+d},$$
+with kernel $$\operatorname{Ker}\psi=\left\{\begin{pmatrix}a&0\\0&a\end{pmatrix}\mid a\in K-\{0\}\right\}.$$
+
+We defined the projective general linear group $\operatorname{PGL}(2,K)=\operatorname{GL}(2,K)/(aI_2)$. Hence, we have $$\operatorname{Aut}(K(x)/K)\cong\operatorname{PGL}(2,K).$$ Now we have $\operatorname{Gal}(K(x)/E)\subset \operatorname{PGL}(2,K)$ up to isomorphism. 
+
+We can easily write down the minimal polynomial of $x$ over $E=K(u)$ as following, 
+$$p(t)=(t-\sigma_1(x))(t-\sigma_2(x))\cdots(t-\sigma_n(x))$$
+Then $n=|\operatorname{Gal}(K(x)/E)|=[K(x):E]=[K(x):K(u)]=\operatorname{ht}(u)$.  
+
+To sum up, we have following theorem:
+\begin{theorem}
+Suppose $K(x)/E$ is Galois, then $G=\operatorname{Gal}(K(x)/E)\subset\operatorname{PGL}(2,K)$. What's more, suppose the minimal polynomial of $K(x)/E$ is $$p(t)=(t-\sigma_1(x))(t-\sigma_2(x))\cdots(t-\sigma_n(x))=t^n+c_{n-1}t^{n-1}+\cdots c_1t+c_0,$$ where $c_i(x)\in K(x)$. Then $\forall c_i(x)\not\in K$ can be defined as $u=u(x)$, which satisfies $F(x)^G=F(u)$.
+\begin{proof}
+The first statement has been solved above, and the second statement is also a direct corollary of theorem \ref{thm:luroth-zwc}'s proof, since now the elementary symmetry polynomials of $\sigma_i(x)$ are the coefficients of the minimal polynomial of $x$ over $E=K(u)$.  At last, as for $F(x)^G=F(u)$, since $G$ is  a finite subgroup of $\operatorname{Aut}(K(x))$, then $K(x)/K(x)^G$ is Galois with Galois group $Gal(K(x)/(K(x)^G))=G$, hence $F(x)^G=F(u)$ which is directly from Artin's Theorem.
+\end{proof}
+\end{theorem}
+
+We would like to give some examples. First of all, let us consider a simple case, that $\operatorname{Gal}(K(x)/E)=G=\{x\mapsto x,x\mapsto 1-x\}:=\{1,\sigma\}$, then the minimal polynomial of $x$ will be $p(t)=(t-x)(t-1+x)=t^2-t+x(1-x)$, hence $E=K(u)=K(x(1-x))$. Similarly, we can also find that there exists an isomorphism group of $G$, say $G'=\{x\mapsto x,x\mapsto 1/x\}=:\{1,\tau\}$, then $K(x)^{G'}=K(x+1/x)$.
+
+Let us combine these two groups, then we will get a new group from the composition (in fractional linear transformation) of the elements in $G$ and $G'$, i.e. $$\hat{G}:=\langle\sigma,\tau\rangle=\{1,\sigma,\tau,\sigma\tau,\tau\sigma,\tau\sigma\tau=\sigma\tau\sigma\}\cong S_3\cong D_3.$$ Note that $\sigma,\tau,\sigma\tau\sigma$ are 2-cycles and $\sigma\tau,\tau\sigma$ are 3-cycles. In explicit, $$\hat{G}=\{x\mapsto x,x\mapsto 1/x,x\mapsto 1-x,x\mapsto 1/(1-x),x\mapsto 1-1/x,x\mapsto x/(x-1)\}.$$
+Clearly, $\hat{G}$ is a finite subgroup of $\operatorname{PGL}(2,K)$, let $F(v)=F(x)^{\hat{G}}$, then consider the minimal polynomial of $x$ over $F(v)$:
+$$p'(t)=(t-x)(t-(1-x))\left(t-\frac{1}{x}\right)\left(t-\frac{1}{1-x}\right)\left(t-\left(1-\frac{1}{x}\right)\right)\left(t-\frac{x}{x-1}\right)$$
+Since the Norm and Trace of $x$ belong to $F$, we can find one of the nontrivial elementary polynomials of $g_i(x)\in\hat{G}$, $$\prod_{1\leq i< j\leq 6}g_i(x)g_j(x)=\frac{(x^2-x-1)^3}{x^2(1-x)^2}.$$ One can find that $\operatorname{ht}(v)=6=|\hat{G}|=|D_3|$. This example has been directly showed in Prof. Yu's course for Advanced Galois Theory.
+
+As for more possibilities of the finite subgroup $\operatorname{Gal}(K(x)/K(u))$ of $\operatorname{Aut}(K(x)/K)=\operatorname{PGL}(2,K)$ is known. If $K$ is characteristics 0, then Klein showed that $G$ is either cyclic, dihedral, $A_4$, $S_4$ or $A_5$. If $K$ has characteristic $p>0$, then Dickson showed that the only other possibilities for $G$ are $\operatorname{PGL}(2,p^n)$,$\operatorname{PSL}(2,p^n)$, and subgroups of the group of upper-triangular matrices in $\operatorname{PGL}(2,p^n)$. Further, for any $K$, one knows explicitly all subgroups of $\operatorname{Aut}(K(x)/K)$ isomorphic to any of the above groups. 
+
+%So now we just need to find a rational function $u$ in $E$, such that $\operatorname{ht}(u)=n$, then from similar process, we finish.
+
+%Let consider all the symmetric polynomials of $g_i(x)$,

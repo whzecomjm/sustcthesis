@@ -1,0 +1,126 @@
+\chapter{Cyclic Sextic Fields}
+\label{chap:chap-six}
+In this chapter, we will study cyclic sextic number fields. First of all, the result of discriminant of a cyclic sextic field could be found in M\"{a}ki's book \citep{maki1980determination}, while we would recover the result using the conductor-discriminant formula \ref{thm:conddisc}. Then, from a necessary theorem given by M\"{a}ki, together with the result of discriminant, we give the integral basis of a cyclic sextic number field. After that, with the help of the fundamental ramification theorem \ref{thm:ramification}, Stickelberger's theorem \ref{thm:unramified} on unramified primes and decomposition results for cyclic cubic field and quadratic field, we obtain the prime decomposition for cyclic sextic number fields. As for the unit groups and class numbers for real cyclic sextic fields, M\"{a}ki has solved those problem, and give a table on them. For complex case, it's a CM-field, hence the class number and the unit group could be reduced into its cyclic cubic field. But unfortunately, we haven't got the final precise results of them.
+
+Let $K_6$ be a cyclic sextic number field over $\mathbb{Q}$ with Galois group $G=C_6$, then from Lemma \ref{lem:signaturegal}, we have that the signature of $K_6$ can only be $(6,0)$ or $(0,3)$ i.e. $K_6$ is totally real or totally complex field. It's easy to see that $G$ has exactly two nontrivial subgroups, namely those are of order 2 and order 3, thus the field $K_6$ has exactly two nontrivial subfields: a (real) cyclic cubic field $K_3$ and a quadratic field $K_2$.
+
+Consider $K_2=\mathbb{Q}(\sqrt{m})$ where $m$ is a square-free integer. $K_3=\mathbb{Q}(\theta)$. Hence, $K_6=\mathbb{Q}(\theta,\sqrt{m})$. Let an odd integer $s$ be such that the automorphism $\sigma$ induced by the mapping $\zeta_{f_6}\rightarrow \zeta_{f_6}^s$, where $f_6$ is the conductor of $K_6$, satisfies the conditions:
+$$\sigma(\theta)=\theta',\sigma(\theta')=\theta'',\sigma(\sqrt{m})=-\sqrt{m}$$
+where the $\theta'$ and $\theta''$ denote the conjugates of $\theta$ in the cyclic cubic subfield, which are defined in theorem \ref{thm:ccpolycon}. What's more, we use the following notations $\gamma^{(i)}=\sigma^{i}(\gamma), i\in\mathbb{Z}$. For simplicity, we will continue to use these notations for the following content.
+
+
+\section{Discriminant and Integral Basis}
+From the Kronecker–Weber theorem, if $K_6$ is a subfield of a cyclotomic field $\mathbb{Q}(\zeta_k)$ then also $Q(\zeta_{f_2})$ and $Q(\zeta_{f_3})$ are contained in $Q(\zeta_{k})$. Hence, we have
+$$f_6=\operatorname{lcm}(f_2,f_3)$$
+As we all known, the conductor $f_2$ of real quadratic field $\mathbb{Q}(\sqrt{m})$ is equal to its fundamental discriminant $D$, and the conductor $f_3=e^2$ as we mentioned in \ref{thm:ccpoly}.
+The characters of $K_6$ \citep{maki1980determination} are the principal character $1$, the quadratic character $\chi_2$ of $K_2$, the generating characters $\chi_3$ and $\bar{\chi}_3$ of $K_3$ and the generating characters $\chi_6=\chi_2\chi_3$ and $\bar{\chi}_6=\chi_2\bar{\chi}_3$ of $K_6$. The conductor of the character $\chi_n$ and $\bar{\chi}_n$ is $f_n$ (since they service for same cyclic galois group). Hence we have following results \citep{hasse1952uber}:
+\begin{theorem}\label{thm:sexdisc}
+The discriminant $d(K_6)$ of the real field $K_6$ is $$d(K_6)=f_6^2f_3^2f_2.$$
+\end{theorem}
+The proof is easy, as we mentioned above, we have found all characters of $K_6$, then by the conductor-discriminant formula \ref{thm:conddisc}, we immediately get $$d(K_6)=f_6^2f_3^2f_2.$$ 
+What's more, for complex cyclic sextic fields, we have similar results:
+\begin{theorem}\label{thm:sexdisccom}
+The discriminant $d(K_6)$ of the complex field $K_6$ is $$d(K_6)=f_6^2f_3^2f_2.$$
+\end{theorem}
+
+The next theorem \citep{maki1980determination} gives a necessary condition for a number $\alpha\in K_6$ to belong to $O_{K_6}$. For simplicity, let us denote $\operatorname{gcd}(f_2,f_3)$ to be $f_*$.
+\begin{lemma} \label{integersex}
+If $\alpha\in O_{K_6}$, then $\alpha$ is of the form $$\alpha=\frac{1}{2}(x_0+x_1\theta+x_2\theta')+\frac{1}{2f_*}(y_0+y_1\theta+y_2\theta')\sqrt{m}$$
+where $\frac{1}{2}x_i+\frac{1}{2}y_i\sqrt{m}\in O_{K_2},(i=0,1,2)$.
+\begin{proof}
+Let $\alpha=a_0+a_1\theta+a_2\theta'+(b_0+b_1\theta+b_2\theta')\sqrt{m}$, where $a_i,b_i\in\mathbb{Q}(i=0,1,2)$ be a number of $O_{K_6}$. Then from the definition of $\sigma$, we have $$\alpha+\alpha^{(3)}=2(a_0+a_1\theta+a_2\theta')\in O_{K_3}.$$ Recall the theorem \ref{thm:ccpoly}, we have $(1,\theta,\theta')$ is an integral basis of $K_3$. So we have $a_i=x_1/2$, where $x_i\in\mathbb{Z}(i=0,1,2)$. Also we have $$\sqrt{m}(\alpha-\alpha^{(3)})=2m(b_0+b_1\theta+b_2\theta')$$ is an algebraic integer. Hence $b_i=z_i/(2m)$ where $z_i\in\mathbb{Z}(i=0,1,2)$. Let $\lambda_i=\frac{1}{2}x_i+\frac{1}{2m}z_i\sqrt{m}$. Now we have the equations:
+\begin{eqnarray}
+\alpha&=&\lambda_0+\lambda_1\theta+\lambda_2\theta' \\
+\alpha^{(4)}&=&\lambda_0+\lambda_1\theta'+\lambda_2\theta'' \\
+\alpha''&=&\lambda_0+\lambda_1\theta''+\lambda_2\theta 
+\end{eqnarray}
+the determinant of the system of linear equation is $\pm f_3$ ($-f_3$ actually, but no need to determine the sign), since this can be viewed as the determination of integral basis and its conjugates. From the definition of discriminant, we have the discriminant is a square root of the discriminant, namely $\pm f_3$. By any case, this follows that the number $f_3\lambda_i (i=0,1,2)$ are algebraic integers. 
+
+Then, the numbers $f_3z_i/m (i=0,1,2)$ are rational integers. Since $f_3$ is odd, $\operatorname{gcd}(m,f_3)=f_*$. Hence $z_i/m=y_i/f_*$ where $y_i\in\mathbb{Z}(i=0,1,2)$, and $\frac{1}{2}x_i+\frac{1}{2}y_i\sqrt{m}\in O_{K_2}$, because $f_3$ is odd and $f_3\lambda_i$ is integral.
+\end{proof}
+\end{lemma}
+Note that if $f_*=\operatorname{gcd}(m,f_3)=1$, it follows that $O_{K_6}=O_{K_2}O_{K_3}$, which coincides the result which can be found in \citep{Xianke2006ANT,cohen1993course} etc. 
+
+Next we will using above lemma to determine the integral basis of the cyclic sextic field. 
+\begin{theorem}\label{thm:intbasis_sex}
+The integral basis of the cyclic sextic field $K_6=\mathbb{Q}(\theta,\sqrt{m})$($m$ is a square-free integer. ) is of form $$(1,\theta,\theta',\eta,\eta\theta,\eta\theta'),$$ where $\eta=\frac{Df_*+\sqrt{D}}{2f_*}$, $f_*=\operatorname{gcd}(f_2,f_3)$ and $D=f_2$ is the (fundamental) discriminant of the quadratic subfield.
+\begin{proof}
+From lemma \ref{integersex}, it's easy to show that each element in the basis is of course integral in $K_6$. So we need to calculate the discriminant of these elements. Let $A$ denote the matrix $$\left(\begin{array}{lll} 1&\theta&\theta'\\ 1&\theta'&\theta'' \\1&\theta''&\theta\end{array}\right),$$
+and $$B=\left(\begin{array}{lll} \eta&\eta\theta&\eta\theta'\\ \eta&\eta\theta'&\eta\theta'' \\ \eta&\eta\theta''&\eta\theta\end{array}\right),C=\left(\begin{array}{lll} \bar{\eta}&\bar{\eta}\theta&\bar{\eta}\theta'\\ \bar{\eta}&\bar{\eta}\theta'&\bar{\eta}\theta'' \\ \bar{\eta}&\bar{\eta}\theta''&\bar{\eta}\theta\end{array}\right)$$
+where $\bar{\eta}=\frac{Df_*-\sqrt{D}}{2f_*}$, then the discriminant of the elements is following:
+\begin{eqnarray*}
+&&\operatorname{Disc}(1,\theta,\theta',\eta,\eta\theta,\eta\theta')\\
+&=&\left(\det\left(\begin{array}{ll} A & B \\ 0&C-B \end{array}\right)\right)^2\\
+&=&(\det{(A)}\cdot\det{(C-B)})^2\\
+&=&\left(-f_3\cdot((\sqrt{D})^3\cdot(-f_3)/f_*)\right)^2\\
+&=&\frac{f_3^4D^3}{f_*^2}\\
+&=&f_3^2f_2\frac{f_3^2f_2^2}{f_*^2}\\
+&=&f_3^2f_2f_6^2
+\end{eqnarray*}
+i.e. we have the basis's discriminant is equal to the discriminant of the field, hence $$(1,\theta,\theta',\eta,\eta\theta,\eta\theta')$$ is an integral basis.
+\end{proof}
+\end{theorem}
+
+\section{Prime Decomposition}\label{sec:primdsex}
+For the prime decomposition in cyclic sextic field, we should consider the situation of its two subfields, which are solved in Chapter \ref{chap:chap-four} and \ref{chap:chap-five}. First of all, let us consider the ramified primes in the cyclic sextic field. As we known in previous theorem, the discriminant of the cyclic sextic field is $d(K_6)=f_2f_3^2f_6^2$, from the fundamental ramification theorem \ref{thm:ramification}, we should consider the prime numbers and discriminant. Since $f_6=\operatorname{lcm}(f_2,f_3)$, hence if $p\mid d(K_6)$, then $p\mid f_2$ or $p\mid f_3$. More precisely, form the chain rules for ramification index and decomposition number, we can immediately get the following results.
+\begin{theorem}\label{thm:csf-ramified}
+Let $K_6=\mathbb{Q}(\theta,\sqrt{m})$ be the cyclic sextic field, suppose $f_3=3^{\delta}p_1p_2\cdots p_t$, and $f_2=D=2^{\delta}q_1q_2\cdots q_s$ where $\delta=\{0,2\}$,
+$p_i\equiv 1 (\operatorname{mod} 3)$ and $q_i\equiv 1 (\operatorname{mod} 2)$; $s,t$ are rational integers. What's more, without loss of generality, suppose $p_i=q_i$ for $0<i\leq t_0\leq \min{\{s,t\}}$, Then we have 
+\begin{enumerate}
+\item if $p=p_i=q_i$, where $0<i\leq t_0\leq \min{\{s,t\}}$, then $p$ is totally ramified, i.e. $pO_{K_6}=\wp^6$
+\item if $p=p_i$, where $i>t_0$, then $p$ is ramified in the subfield $K(\theta)$, and we have $pO_{K_6}=\wp_1^3\wp_2^3$ if $\left(\frac{f_2}{p}\right)=1$ or $pO_{K_6}=\wp^3$ if $\left(\frac{f_2}{p}\right)=-1$.
+\item if $p=q_i$, where $i>t_0$, then $p$ is ramified in the subfield $K(\sqrt{m})$, and we have $pO_{K_6}=\wp_1^2\wp_2^2\wp_3^2$ or $pO_{K_6}=\wp^2$. To determine which case is suitable for $p$, we should used the results in section \ref{sec:ccf-decom} in chapter \ref{chap:chap-five}.
+\end{enumerate}
+\end{theorem}
+
+As for the results for unramified cases, suppose $p$ is an unramified prime in $O_{K_6}$, i.e. $p\nmid f_2$ and $p\nmid f_3$, then from the theorem \ref{thm:unramified}, we have 
+\begin{theorem}\label{thm:csf-unramified}
+Let $K_6=\mathbb{Q}(\theta,\sqrt{m})$ be the cyclic sextic field, $p$ be an unramified prime in $O_{K_6}$, then 
+\begin{enumerate}
+\item if $\left(\frac{d(K_6)}{p}\right)=1$, then $pO_{K_6}=\prod_{i=1}^6\wp_i$ (splits completely), or $pO_{K_6}=\wp_1\wp_2$. 
+\item if $\left(\frac{d(K_6)}{p}\right)=-1$, then $pO_{K_6}=p$ (inert) or $pO_{K_6}=\wp_1\wp_2\wp_3$.
+\end{enumerate}
+\end{theorem}
+To determined the exact cases for above unramified theorem, we should refer to chapter \ref{chap:chap-five}.
+ 
+\section{Unit and Class Number of Real Cyclic Sextic Field}
+For real cyclic sextic field, we  have the signature of $K_6$ can only be $(6,0)$, then according to Dirichlet's theorem \ref{thm:Dirichlet} on units in $K_6$ there are 5 fundamental units, which together with $-1$ generate the multiplicative group $U_6$ of units of $K_6$. The unit group $U_6$ has the unit groups $U_2$ and $U_3$ of the subfields $K_2$ and $K_3$ as subgroups. 
+
+As we known before, suppose $U_2$ is generated by $-1$ and the fundamental unit $\mu$, and $U_3$ is generated by $-1$, a fundamental unit $\tau$ and one of its conjugates $\tau'=\sigma(\tau)$. From Latimer's work \citep{latimer1934units}, we know that $K_6$ has a system of fundamental units containing $\mu,\tau,\tau'$. So there are three fundamental units are known, i.e. those belonging to the proper subfields, namely $\epsilon,\tau,\tau'$.  
+
+To determine the other two units we should first get a so called cyclotomic unit which is calculable from a definite expression. This unit, together with its conjugates, and the units of the proper subfields generate a subgroup of finite index in the whole unit group, and it is in principle relatively easy to obtain the whole group from this subgroup.
+
+First of all, we need a so-called relative units, a unit $\epsilon$ of $K_6$ for which $N_{6/3}(\epsilon)=\pm1$ and $N_{6/2}(\epsilon)=\pm1$ is called a \textbf{relative units}. Let $U_R$ denoted the group of relative units, i.e. we have $$U_R=\{\epsilon\in U_6|N_{6/3}(\epsilon)=\pm1,N_{6/2}(\epsilon)=\pm1\}$$
+
+Note that if $\epsilon\in U_R$, then $N_{6/1}(\epsilon)=N_{2/1}(N_{6/2}(\epsilon))=N_{2/1}(\pm1)=1$. On the other hand, $1=N_{6/1}(\epsilon)=N_{3/1}(N_{6/3}(\epsilon))=(N_{6/3}(\epsilon))^3$ so that for $\epsilon\in U_R$, we have $N_{6/3}(\epsilon)=1$
+
+What's more, M\"{a}ki has proved that in $K_6$, there exists a generating relative unit $\xi_R$ such that $$U_R=\{\pm\xi_R^k\xi_R'^l|k,l\in\mathbb{Z}\}.$$ On the contrary, every relative unit in $K_6$ has a unique representation in this form. M\"{a}ki also showed that how to calculate $\xi_R$ and then establish a solution of the unit.
+
+As for the class number, using the cyclotomic unit, M\"{a}ki has prove a theorem that $h_6=h_2h_3h_R$, where $h_2,h_3$ are class number of the subfield $K_2$ and $K_3$, and the $h_R$ is so-called relative class number of $K_6$. These numbers can be calculated by the cyclotomic units together with fundamental units.
+
+M\"{a}ki lists a huge number with conductor $f_6\leq 2021$ of cyclic sextic field with class number and unit group in her book. Then, together with Ennola and Turunen, she extend this table for $f_6<4000$.
+
+
+\section{Unit and Class Number of Complex Cyclic Sextic Fields}\label{sec:unitccsf}
+For complex situation, then the signature of $K_6$ can only be $(0,3)$, then according to Dirichlet's theorem \ref{thm:Dirichlet} on units in $K_6$ there are 2 fundamental
+units, which together with $\mu(K_6)$ generate the multiplicative group $U_6$ of units of $K_6$.
+
+To start discussing the unit and class number of complex cyclic sextic fields,  we first introduce the CM-field. Then idea of CM-field is the extension of complex quadratic field and cyclotomic field.  A CM-field $K$ is a totally imaginary extension of a totally real number field $k^+$, i.e. $$K=K^+(\sqrt{a}),$$ where $K^+$ is totally real, and $a\in K^+$ has negative conjugates.
+
+For example, $K=\mathbb{Q}(\zeta_m)$ is a CM-field, since $K=K^+(\sqrt{a})$, where $K^+=\mathbb{Q}(\zeta+\zeta^{-1})$, and $a=\zeta^2+\zeta^{-2}-2$.
+
+The relationship between the largest totally real subfield and the CM-field are very useful:
+\begin{theorem} 
+Let $\mathbb{Q}\subset F\subset K$ be nontrivial extensions of number fields. Then $K$ is a CM-field, with $F$ its totally real subfield, if and only if $U_K/U_F$ is finite.
+\end{theorem}
+
+Another useful theorem \citep{Xianke2006ANT} for class number and unit group is showed as follows:
+\begin{theorem}\label{thm:unitcomplexsec}
+Let $K$ be a CM-field, $K^+$ its largest totally real subfield, $h$ and $h^+$ be the class number of them respectively, $U$ and $U^+$ be the unit group of $K$ and $K^+$, then: 
+\begin{enumerate}
+\item $h^-=h/h^+$ is so-called the relative class number, which is a rational integer.
+\item $Q:=[U:\mu(K)U^+]=1\text{ or }2$
+\end{enumerate} 
+\end{theorem}
+
+More precisely, S. Louboutin has given the class number for complex cyclic sextic field  with $f_6\leq 220000$.

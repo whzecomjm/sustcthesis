@@ -1,0 +1,39 @@
+\chapter{The Legendre-Jacobi-Kronecker Symbol}
+\label{chap:appA}
+All the symbols with the form $\left(\frac{a}{b}\right)$ I used in the paper are Kronecker Symbols. But first, let us review the definition and some properties of Legendre symbol.
+\section{The Legendre Symbol}
+In number theory, the Legendre symbol is a multiplicative function with values {1,-1,0} that is a quadratic character modulo an \textbf{odd} prime number $p$: its value on a (nonzero) quadratic residue mod p is 1 and on a non-quadratic residue (non-residue) is −1. Its value on zero is 0. 
+Furthermore, one can easily show that this symbol has the following properties:
+\begin{proposition}
+\begin{enumerate}
+\item The Legendre symbol is periodic, if $a\equiv b(\text{mod }p)$, then $$\left(\frac{a}{p}\right)=\left(\frac{b}{p}\right)$$
+\item The Legendre symbol is multiplicative, i.e. $$\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=\left(\frac{a b}{p}\right)$$
+\item We have the congruence $a^{(p-1)/2}\equiv \left(\frac{a}{p}\right)(\text{mod }p).$
+\item There are as many quadratic residues as non-residues mod $p$, say $(p-1)/2$.
+\item Let $p$ be an odd prime, then $$\left(\frac{-1}{p}\right)=(-1)^{(p-1)/2}, \left(\frac{2}{p}\right)=(-1)^{(p^2-1)/8}$$
+\item Let $p,q$ be two different odd primes, then we have reciprocity law: $$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{(p-1)(q-1)/4}$$
+\end{enumerate}
+\end{proposition}
+
+\section{The Kronecker Symbol}
+Now we extend the definition of the Legendre symbol \citep{cohen1993course}.
+\begin{definition}
+we define the Kronecker (or Kronecker-Jacobi) symbol $\left(\frac{a}{b}\right)$ for any $a$ and $b$ in $\mathbb{Z}$ as follows:
+\begin{enumerate}
+\item If $b=0$, then $\left(\frac{a}{0}\right)=1$ if $a=\pm1$, and is equal to 0 otherwise.
+\item For $b\neq0$, firstly $\left(\frac{a}{1}\right)=1$. For other case write $b=\prod p$, where $p$ are not necessarily distinct primes (including $p=2$), or $p=-1$ to take care of sign. The we set $$\left(\frac{a}{b}\right)=\prod\left(\frac{a}{p}\right),$$ where $\left(\frac{a}{p}\right)$ is the Legendre symbol defined above for $p>2$, and where $p=2$ we define: $$\left(\frac{a}{2}\right)=\left\{\begin{array}{cc} 0, & \text{if } a \text{ is even}\\
+(-1)^{(a^2-1)/8}, &  \text{if } a \text{ is odd.}
+\end{array}\right.$$
+and also $$\left(\frac{a}{-1}\right)=\left\{\begin{array}{cc} 1, & \text{if } a\geq0\\
+-1, &  \text{if } a<0.
+\end{array}\right.$$
+\end{enumerate}
+\end{definition}
+
+Also the Kronecker symbol has the following simple properties:
+\begin{proposition}
+\begin{enumerate}
+\item $\left(\frac{a}{b}\right)=0$ iff $(a,b)\neq1$
+\item for all $a,b,c$, if $b c\neq0$, we have $$\left(\frac{ab}{c}\right)=\left(\frac{a}{c}\right)\left(\frac{b}{c}\right), \left(\frac{a}{bc}\right)=\left(\frac{a}{b}\right)\left(\frac{a}{c}\right)$$
+\end{enumerate}
+\end{proposition}

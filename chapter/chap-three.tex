@@ -1,0 +1,208 @@
+\chapter{Galois Theory}
+\label{chap:chap-three}
+Galois Theory, named after \'{E}variste Galois, is a useful tool to provide a connection between field theory and group theory. From the fundamental theorem of the Galois theory, we could find that the certain problems in field theory can be reduced to group theory, which is in some sense simpler and better understand. Originally, Galois used permutation groups to describe how the various roots of a given polynomial equation are related to each other. The modern approach to Galois theory, developed by Richard Dedekind, Leopold Kronecker and Emil Artin, among others, involves studying automorphisms of field extensions. In this chapter, we will introduce some basic theory of Galois theory and an application of it.
+
+
+\section{Galois Extension}
+For simplicity, we skip the theory of group and some basic definition of field. A field $K$ containing a field $F$ is called an extension field of $F$. Such an $K$ can be regarded as an $F$-vector space, and we write $[K:F]$ for the dimension, which we called degree of the extension. 
+
+Consider fields $K/F$, we say the extension $K/F$ is \textbf{algebraic} if for any $\alpha\in K$ is algebraic over $K$, i.e.  every element of $K$ is a root of some non-zero polynomial with coefficients in $F$. The field extensions that are not algebraic are called transcendental.  
+
+we say an algebraic field extension $K/F$ is \textbf{separable} if for every $\alpha\in K$, the minimal polynomial of $\alpha$ over F is a separable polynomial, i.e., has distinct roots. For $F$ is characteristic $0$, any algebraic extension is separable. Also, for any finite field, any algebraic extension of it is separable. 
+
+A \textbf{splitting field} of a polynomial $p(X)$ over a field $F$ is a field extension $K/F$ which $p$ factors into linear factors and such that the roots generate $K$ over $F$. We say an algebraic field extension $K/F$ is \textbf{normal} if $K$ is the splitting field of a family of polynomials in $F[x]$. Or equivalently, every irreducible polynomial in $F[X]$ that has one root in $K$, has all of its roots in $K$.
+
+An $F$-isomorphism $K\rightarrow K$ is called an $F$-\textbf{automorphism} of $K$. The $F$-automorphisms of $K$ form a group, which we denote $\operatorname{Aut}(K/F)$.
+
+The normal extension $K/F$ is also equivalent to that every embedding (i.e. injective ring homomorphism) $\sigma$ of $K$ into $F^c$ is an automorphism of $K$ over $K$.
+
+\begin{definition}[Galois Extension]
+A finite extension $K$ of $F$ is said to be Galois if $K/F$ is both separable and normal. 
+The $F$-automorphisms of $K$ is called the \textbf{Galois group} of $K$ over $F$, and it is denoted by $\operatorname{Gal}(E/F)$.
+\end{definition}
+
+An important theorem of Emil Artin \citep{artin1944galois} states that for a finite extension $K/F$, each of the following statements is equivalent to the statement that $E/F$ is Galois: 
+\begin{theorem}[Artin]
+For an extension $K/F$, the following statements are equivalent:
+\begin{enumerate}
+\item $K$ is the splitting field of a separable polynomial $f\in F[x]$.
+\item $F=K^G$ for some finite group $G$ of automorphisms of $K$.
+\item $K$ is normal, separable and of finite degree over $F$.
+\item $K/F$ is Galois.
+\end{enumerate}
+\end{theorem}
+
+\section{The fundamental theorem of Galois theory}
+We then call the fundamental theorem of Galois theory which is the central theorem of Galois theory.
+\begin{theorem}[The fundamental theorem of Galois theory]
+Let $K/F$ is Galois, and $G=\operatorname{Gal}(K/F)$. The maps $H\mapsto K^H$ and $M\mapsto \operatorname{Gal}(K/M)$ are inverse bijections between the set of subgroups of $G$ and the set of intermediate fields between $K$ and $F$. Moreover, we have 
+\begin{enumerate}
+\item the correspondence is inclusion-reversing.
+\item indexes equal degrees: $(H_1:H_2)=[K^{H_2}:K^{H_1}]$  
+\item $\sigma H\sigma^{-1}\leftrightarrow\sigma M$
+\item $H$ is normal subgroup of $G$ if, and and only if, $K^H$ is normal over $F$, in which case $$\operatorname{Gal}(K^H/F)\cong G/H.$$
+\end{enumerate}
+\end{theorem}
+
+\section{Galois Groups of Polynomials}
+If the polynomial $f\in F[x]$ is separable, then its splitting field $F_f$ is Galois over $F$, and we call $\operatorname{Gal}(F_f/F)$ the Galois group $G_f$ of $f$.
+From now on, we just consider the simplest case, i.e. $F=\mathbb{Q}$, and we denote $\operatorname{Gal}(f)=\operatorname{Gal}(\mathbb{Q}_f/\mathbb{Q})$. Then, any splitting field $\mathbb{Q}_f$ is Galois over $\mathbb{Q}$.
+
+A well-known theorem is that the roots of $f$ are solvable in radical if only if $\operatorname{Gal}(f)$ is solvable, which provides some motivation as to why the Galois group of a polynomial is of interest.
+
+Let $f$ be a univariate polynomial with rational coefficients. Throughout this article we suppose that $f$ has degree $n$ and roots $r_1,r_2,\dots,r_n$. The splitting field $\mathbb{Q}_f$ of $f$, denoted by $\mathbb{Q}(r_1,\dots,r_n)$, is a finite extension of $\mathbb{Q}$ generated by the roots of $f$. Then the Galois group of $f$ is
+defined to be \[G_f=\operatorname{Gal}(f):=\operatorname{Gal}(\mathbb{Q}(r_1,\dots,r_n)/\mathbb{Q}).\] 
+
+Observing that the splitting field $\mathbb{Q}_f$ of a monic polynomial $f(x)$ with rational coefficients can be change into a splitting field of a monic polynomial with integer coefficients. 
+
+Now we use some words to explain it. Let $$f(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_1 x+a_0,$$ where $a_i\in\mathbb{Q},i=0,\dots,n-1$. Assume the greatest common divisor of the denominators is $d$, then $a_i=b_i/d,$ where $b_i,d\in\mathbb{Z}, i=0,1,\dots,n-1$. Hence, we have 
+$$f\left(\frac{x}{d}\right)=\left(\frac{x}{d}\right)^n+\frac{b_{n-1}}{d}\left(\frac{x}{d}\right)^{n-1}+\cdots+\frac{b_0}{d},$$
+Whence, $$d^nf\left(\frac{x}{d}\right)=x^n+b_{n-1}x^{n-1}+\cdots+b_0,$$
+It's clear that the splitting fields of $f(x)$ and $g(x):=d^nf(\frac{x}{d})$ coincide. More precisely, we called $f(x)$ is equivalent to $g(x)$ (resp. $G_f$ is equivalent to $G_g$) \textbf{up to scaling}.
+
+If $f(x)\in K[x]$ is a separable irreducible polynomial of degree $n$ and $G_f$ is its Galois group over $K$, then the group $G_f$ can be embedded into $S_n$ by writing the roots of $f(x)$ as $r_1,\dots,r_n$ and identifying each automorphism in the Galois group with the permutation it makes on the $r_i$'s. 
+
+In $S_n$ we have the alternating group $A_n\subset S_n$, the following result is famous to determine the Galois group of the polynomial:
+\begin{theorem}\label{thm:discriminantsq}
+Let $K=\mathbb{Q}(\theta)$ be a number field of degree $n$, where $\theta$ is an algebraic integer with $f(x)$ be a minimal polynomial, then $G_{f}\subset A_n$ if and only if $\operatorname{Disc}(f)$ is a square. 
+\end{theorem}
+
+\section{Dedekind's Criterion}
+A theorem of Dedekind \citep{Conrad_recognizinggalois} which provides useful information about $G_f$ over $\mathbb{Q}$. 
+\par
+
+\begin{theorem}[Dedekind's criterion]\label{thm:Dedekindcri}
+Let $f(x)\in\mathbb{Z}[x]$ be a monic irreducible polynomial of degree $n$. Put $f_p(x)=f(x) \mod p$. Suppose $f_p(x)$ is a product of monic irreducible polynomials of degrees $n_1,n_2,\dots,n_r$ in $\mathbb{F}_p[x]$, where $n_1+n_2+\cdots+n_r=n$. Then $G_f$ is a subgroup of $S_n$ which contains a permutation permuting the roots with cycles type $(n_1,n_2,\dots,n_r)$.
+\end{theorem}
+\par
+
+From the theorem, we should know first that $f(x)$ is irreducible over $\mathbb{Q}$. Irreducibility can be read off from the factorizations, since a factorization over $\mathbb{Q}$ can be scaled to be  a (monic) factorization over $\mathbb{Z}$. then if we have linear factor in $\mathbb{Z}[x]$, then of course, we have linear factor in $\mathbb{Z}_p[x]$.
+
+It is important to remember that Dedekind's theorem does not correlate any information about the permutations coming from different primes. We don't know the exact roots which permuted by the cycles.
+
+%Now we give an example of this theorem:
+
+%Let $f(x)=x^6+x^4+x+3$. Here are the factorizations of $f(x)$ modulo the first few primes:
+%\begin{eqnarray*}
+%&&f(x)\equiv (x+1)(x^2+x+1)(x^3+x+1) (\operatorname{mod} 2)\\
+%&&f(x)\equiv x(x+2)(x^4+x^3+2x^2+2x+2) (\operatorname{mod} 3)\\
+%&&f(x)\equiv (x+3)^2(x^4+4x^3+3x^2+x+2) (\operatorname{mod} 5)\\
+%&&f(x)\equiv (x^2+5x+2)(x^4+2x^3+3x^2+2x+5) (\operatorname{mod} 7)\\
+%&&f(x)\equiv (x+6)(x^5+5x^4+4x^3+8x^2+x+6) (\operatorname{mod} 11)\\
+%&&f(x)\equiv (x^2+8x+1)(x^2+9x+10)(x^2+9x+12) (\operatorname{mod} 13)
+%\end{eqnarray*}
+%\par
+%From the factorization modulo 7 or 13, we see there is no linear factor as well as no cubic factor, form $p=11$, there is no quadratic factor. Hence, $f(x)$ is irreducible. Moreover,from the factorizations modulo 2 and 3, we have $G_f$ contains permutations of cycle type (1,2,3) and (1,1,4) (namely 4-cycle). The factorization mod 5 does not tell us anything by Dedekind's criterion, because there is a multiple factor. From the later primes, we see $G_f$ contains permutations of the roots with cycle types $(2,4)$, $(1,5)$ (a 5-cycle), and $(2,2,2)$
+
+
+
+\section{Computing Galois Group of a Polynomial}
+Galois groups are not easy to compute. As Galois says in the ``Discours Preliminaire" to his first memoir on Galois theory \citep{cox2012galois}: 
+\begin{quote}
+If now you give me an equation that you have chosen at will, and about which you want to know if it is or is not solvable by radicals, I cannot do any more than indicate the means for answering your question, without wanting to charge either myself or any other person with doing it. In a word, the calculations are impractical. 
+\end{quote}
+Even with the aid of modern computers, it is not easy to compute the Galois group of a polynomial of large degree unless the polynomial has 
+some special structure. We will introduce some ways of computing Galois groups of arbitrary polynomials.
+
+Throughout the method of Dedekind's criterion, one can only determine whether the Galois group of a polynomial with degree $n$ in $\mathbb{Q}[x]$ is to be $S_n$ or $A_n$ or not. For more results on that, one can refer \citep{Conrad_recognizinggalois} etc.
+
+The following Resolvent Method has developed by L. Soicher and J. Mckay etc. can be useful to compute the Galois group of the polynomial. This method was first described by Jordan\citep{jordan1870traite} in 1870, and improved by 
+L. Soicher etc.\citep{soicher1985computing} who raised the linear resolvent polynomial method to computing the Galois group of a polynomial. We note two immediate consequences. First, $f$ is a separable polynomial, i.e., it has distinct roots. Second, $\operatorname{Gal}(f)$ is a transitive group, i.e. for all $r_i$ and $r_j$ there is some $\sigma\in\operatorname{Gal}(f)$ which sends $r_i$ to $r_j$.
+
+To using this method, we should first know some definitions. The \textbf{orbit} of a polynomial $p\in R[x_1,\dots,x_n]$ under $S_n$ is the set of polynomials that $p$ can be sent to by permuting the $x_i$, and this is denoted by $\operatorname{orb}(p)$.
+
+Note that, this definition can be thought of as measuring ``how close" a polynomial is to being symmetric. For example, orb{p} has the smallest situation, i.e. $\operatorname{orb}(p)=\{p\}$, then we have $p$ fixes any permutation, hence $p$ is symmetric polynomial.
+
+The most important definition for the method is resolvent polynomial, here comes to our definition:
+\begin{definition}
+The \textbf{resolvent polynomial} is defined in terms of two polynomials $f\in\mathbb{Z}[x]$ and $p\in\mathbb{Z}[x_1,\dots,x_n]$ to be the new univariate polynomial
+$$R_{p,f}(y):=\prod_{p_i\in\operatorname{orb}(p)}(y-p_i(r_1,\dots,r_n))$$
+\end{definition}
+
+In particular, a resolvent polynomial $R_{p,f}$, where $p=e_1x_1+\cdots+e_rx_r\in\mathbb{Z}[x]$ for some $r,1\leq r\leq n,$and $e_1,\cdots,e_r$ nonzero integers, is called a \textbf{linear resolvent polynomial}.
+
+%Some examples are given following. Let $p=x_1+x_2$, then the resolvent polynomial of $f$ will have $\mathbf{C}_n^2$ roots. 
+%Considering $f(x)=x^3-2$, then $\operatorname{orb}(p)=\{x_1+x_2,x_2+x_3,x_1+x_3\}$. It follows that 
+%$$R_{p,f}(y):=(y-(r_1+r_2))(y-(r_1+r_3))(y-(r_2+r_3))=(y+r_3)(y+r_2)(y+r_1)=y^3+2$$
+%Another two cases will be listed in the following table together with above polynomial:
+
+%\begin{table}[htbp]
+%\centering
+%\begin{tabular}{c|c}
+%\hline
+%$f(x)$ & $R_{p,f}(y)$ \\
+%\hline
+%$x^3+2$ & $y^3+2$\\
+%$x^4+1$ & $y^6-4y^2$\\
+%$x^4+x^3+x^2+x+1$ & $y^6+3y^5+5y^4+5y^3-2y-1$\\
+%\hline
+%\end{tabular}
+%\caption{Resolvent Polynomials of Given Polynomial with %$p=x_1+x_2$}
+%\label{tab:resolvent}
+%\end{table}
+
+Since the resolvent is defined with respect to the orbit of $p$ it is symmetric in the $r_i$, i.e. permuting the $r_i$ will permute the roots of $R_{p,f}$ but does not change $R_{p,f}$ itself. i.e. the coefficients of $R_{p,f}$ are symmetric polynomials of $r_1,\dots,r_n$, and the by the \textbf{fundamental theorem of symmetric polynomials} can be written in terms of the elementary symmetric polynomials in $r_1,\dots,r_n$. However, the elementary symmetric polynomials in $r_1,\dots,r_n$ are exactly the coefficients of $f$, therefore integers. Hence, $R_{p,f}\in\mathbb{Z}[y]$ providing $p\in\mathbb{Z}[x_1,\dots,x_n]$ and $f\in\mathbb{Z}[x]$.
+
+For larger degree polynomials, it's hard to get the resolvent. However, computer becomes to our useful tool for computing coefficients of $R_{p,f}$ from above property. We can first approximate the roots of $f$ via numerical root-finding methods, form all combinations of the roots as specified by $p$, and then expand the product from the definition to find approximations of the coefficients of $R_{p,f}$. Since the coefficients are integers, if the approximations are known with sufficient accuracy then the approximations may simply be rounded to the nearest integer.
+
+The action by $\sigma\in\operatorname{Gal}(f)$ on the roots of $R_{p,f}$ actually gives $Gal(R_{p,f})$. More precisely, let $\phi: \operatorname{Gal}(f)\rightarrow \operatorname{Gal}(R_{p,f})$ be defined so that $\phi(\sigma)$ is the action by $\sigma$ on the roots of $R_{p,f}$. Formally, a proposition which can be found in Cohen's book \citep{cohen1993course} is the following:
+\begin{proposition}
+If the roots of $R_{p,f}$ are distinct then $\operatorname{Gal}(f)=\phi(\operatorname{Gal}(R_{p,f}))$.
+%\begin{proof}
+%By the definition of $\phi$, we have $$\phi(\operatorname{Gal}(f))\subset\operatorname{Gal}(R_{p,f}),$$ i.e., if $\sigma$ is an automorphism then $phi(\sigma)$ is also an automorphism. For the other direction, since the roots of $R_{p,f}$ are built out of $f$'s roots, we have the splitting fields $\mathbb{Q}_{R_{p,f}}\subset\mathbb{Q}_{f}$ , from which, we have $\operatorname{Gal}(R_{p,f})\subset\operatorname{Gal}(f)$. By projecting down into $\mathbb{Q}_{R_{p,f}}$ we have $$\operatorname{Gal}(R_{p,f})\subset\phi(\operatorname{Gal}(f)).$$
+%\end{proof}
+\end{proposition}
+
+As mentioned before, to use the above theorem we require that $R_{p,f}$ have distinct roots, however it will not always be the case. The \textbf{Tschirnhausen transformation} is an algorithm to get rid of this problem. For more information, one can refer to Cohen's book \citep{cohen1993course}.
+
+%We have see from the examples in table \ref{tab:resolvent} that there are some "locally" transitive properties. For example, $f=x^4+x^3+x^2+x+1$,$p=x_1+x_2,$ we have $$R_{p,f}=(y^4+2y^3+4y^2+3y+1)(y^2+y-1).$$ This doesn't give us the Galois group of $R_{p,f}$ it does tell us its locally transitivity. i.e. the orbits of the action by $\text{Gal(f)}$ on the roots of $R_{p,f}$.In the above case the orbit-length partition is $(4,2)$, corresponding to the degrees of the irreducible factors of $R_{p,f}$.
+%Suppose the $\operatorname{Gal}(f)=G$, now consider each permutation of $G$ on the roots of $R_{p,f}$, then we can get another orbit-length partition. Consider all transitive subgroup of $S_4$ for above example, we can get the following table:
+
+%\begin{table}[htbp]
+%\centering
+%\begin{tabular}{ccccc}
+%\hline
+%$S_4$ & $A_4$ & $D_4$ & $V_4$ & $C_4$\\
+%(6) & (6) & (4,2) &(2,2,2) & (4,2)\\
+%\hline
+%\end{tabular}
+%\caption{Orbit-length Partition with $p=x_1+x_2$}
+%\label{tab:orbit}
+%\end{table}
+
+%From this we conclude that in our previous example $\text{Gal(f)}$ must be either $D_4$ or $C_4$. To distinguish between these cases, we should try another new resolvent polynomial.
+
+%Let $p=x_1-x_2$, then we get $$R_{p,f}=(y^4+5y^2+5)(y^4+5y+5)(y^4-4y+5),$$ so the orbit-length partition of the roots of $R_{p,f}$ under $\operatorname{Gal}(f)$ is $(4,4,4)$. As before, we can get the new table
+
+%\begin{table}[htbp]
+%\centering
+%\begin{tabular}{ccccc}
+%\hline
+%$S_4$ & $A_4$ & $D_4$ & $V_4$ & $C_4$\\
+%(12) & (12) & (8,4) &(4,4,4) & (4,4,4)\\
+%\hline
+%\end{tabular}
+%\caption{Orbit-length Partition with $p=x_1-x_2$}
+%\label{tab:orbit2}
+%\end{table}
+
+%Hence, we conclude that $\operatorname{Gal}(f)=C_4$.   
+
+The linear resolvent method (together with recognizing squarefree of the discriminant of the polynomial, i.e. determined the Galois group is a subgroup of $A_n$ or not) can be applied for polynomial up to degree 7 \citep{soicher1985computing}. One can find a table from  L. Soicher and J. McKay's work \citep{soicher1985computing}. In additional, we repose some parts of this table in Appendix \ref{chap:appD}, see table \ref{tab:allorbits}.
+
+
+
+
+
+%\section{The Kronecker-Weber Theorem}
+%\subsection{Inverse Galois Problem}
+%Let $K$ be an arbitrary filed and $G$ be a group. one says $G$ is realized over $K$ if there exists a field $L$ such that $Gal(L/K)\cong G$.
+    
+%In Galois Theory, the inverse Galois problem concerns whether or not every finite group is realized over rational number filed $\mathbb{Q}$. This problem is still open, However, some easy cases have been solved.
+ 
+%Shafarevich citep{SchmidtSafaThem} showed that every finite solvable group is realizable over $\mathbb{Q}$.
+
+%A simple example is that we can construct any finite cyclic group realized over $\mathbb{Q}$ through cyclotomic extension of $\mathbb{Q}$.
+
+
+

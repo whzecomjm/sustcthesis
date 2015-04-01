@@ -1,0 +1,82 @@
+\chapter{Quadratic Fields}
+\label{chap:chap-four}
+In this chapter, we are going to discover the most simplest number field that are different from
+$\mathbb{Q}$, i.e. quadratic fields. Let denote it as $K$. A quadratic field is of degree 2 over $\mathbb{Q}$, it can be given by $K=\mathbb{\theta}$, where $\theta$ is a root of minimal polynomial $f(x)=x^2+a x+b$ of $\mathbb{Z}[x]$. Let $d=a^2-b$, then $K=\mathbb{Q}(\sqrt{d})$. Clearly, $d$ is not a square, otherwise $f(x)$ won't be a irreducible quadratic polynomial. Since $\mathbb{Q}(\sqrt{m^2d})=\mathbb{Q}(\sqrt{d})$, hence we may assume that $d$ is squarefree.
+
+Since $n=2=r_1+2r_2$, the signature of quadratic field $K$ is either $(2,0)$ or $(0,1)$, which is called real quadratic field or complex (or imaginary) quadratic field respectively.
+It's easy to show that the real quadratic field has positive discriminant and the complex quadratic field has negative discriminant.
+
+\section{Discriminant, Integral Basis}
+The integral basis and discriminant of quadratic field is easy as following theorem:
+\begin{theorem}\label{thm:quad_disc}
+Let $K=\mathbb{Q}(\sqrt{d})$ be a quadratic field with $d$ squarefree. Then if $d\equiv1(\operatorname{mod} 4)$, we have integral basis $(1,(1+\sqrt{d})/2)$ with discriminant $d(K)=d$; if $d\equiv2\text{ or }3(\operatorname{mod} 4)$, we have integral basis $(1,\sqrt{d})$ with discriminant $d(K)=4d$.
+\end{theorem}
+
+Let us denote $D=d(K)$ (namely fundamental discriminant) for these two cases, then we can see that it satisfies Stickelberger's criterion \ref{thm:stickelberger}. What's more, $K=\mathbb{Q} (\sqrt{D})$ has integral basis $(1,\omega)$, where $$\omega=\frac{D+\sqrt{D}}{2},$$ and therefore $O_K=\mathbb{Z}[\omega]$.
+
+\section{Decomposition of Primes}
+Note that Proposition \ref{thm:decomposition} and Proposition \ref{thm:kummer} immediately shows how prime numbers decompose in a quadratic field \citep{Xianke2006ANT}.
+
+
+\begin{theorem}\label{thm:quad_decompose}
+Let $K=\mathbb{Q}(\sqrt{D})$, where $D$ is the fundamental discriminant, i.e. $D=d(K)$, $O_K=\mathbb{Z}[\omega]$ where $\omega=(D+\sqrt{D})/2$ its ring of integers, and $p$ be a prime number. Then\footnote{$\left(\frac{D}{p}\right)$ is Kronecker symbol which can be seen in Appendix \ref{chap:appA}.}
+\begin{enumerate}
+\item If $\left(\frac{D}{p}\right)=0$, then $p$ is ramified, i.e. $pO_K=\wp^2$. More precisely, $$\wp=pO_K+\omega O_K,$$ except when $p=2$ and $D\equiv12(\operatorname{mod} 16)$.
+\item If $\left(\frac{D}{p}\right)=-1$, then $p$ is inert, hence $pO_K=\wp$ is a prime ideal.
+\item If $\left(\frac{D}{p}\right)=1$, then $p$ is split, and we have $pO_K=\wp_1\wp_2$, where 
+$$\wp_i=pO_K+(\omega-\frac{D\pm b}{2})O_K,$$ and $b$ is any solution to $b^2\equiv D(\operatorname{mod} 4p)$
+\end{enumerate}
+\end{theorem}
+
+\section{Unit Group of Imaginary Quadratic Fields}
+First we consider the unit group of quadratic field, by the Dirichlet's Unit theorem \ref{thm:Dirichlet}, we can divide the quadratic field into two cases. The imaginary quadratic field has simple unit group since $r=r_1+r_2-1=0$, i.e. the unit group is finite. In fact, the imaginary quadratic field is the only number field apart from $\mathbb{Q}$ who has finite units. A theorem for the unit group of Imaginary Quadratic fields could be found in \citep{Xianke2006ANT,cohen1993course} etc.:
+
+\begin{theorem}\label{thm:quad_unit}
+Let $K=\sqrt{D}$, where the fundamental discriminant $D<0$, then the group $U(K)=\mu(K)$ of units  is equal to the group of $\omega(D)-th$ roots of unity, where 
+$$\omega(D)=\left\{\begin{array}{ll}
+2,& \text{if }D<-4\\
+4,& \text{if }D=-4\\
+6,& \text{if }D=-3
+\end{array}\right.$$
+\end{theorem}
+
+\section{Class number of Imaginary Quadratic Fields}
+Let us now consider the problem of computing the class number of imaginary quadratic field. Here we give a beautiful result from L-function. Since it's to far to enter into the details of the analytic theory of \textbf{L-functions}, so we just recall the results. Our main result is a corollary of Dirichlet's Theorem (We have reorganized this theorem to fit all imaginary quadratic number field. In the original theorem, it just states $D<-4$ cases.) \citep{cohen1993course}.
+ 
+\begin{theorem}
+If $D$ is a negative fundamental discriminant, then $$h(K)=\frac{\omega(D)}{4-2\left(\frac{D}{2}\right)}\sum_{1\leq r<|D|/2}\left(\frac{D}{r}\right),$$ where $\omega(D)$ is defined in Theorem \ref{thm:quad_unit}. 
+\end{theorem} 
+
+\begin{remark}
+For $D<-4$, we have $$h(K)=\frac{1}{2-\left(\frac{D}{2}\right)}\sum_{1\leq r<|D|/2}\left(\frac{D}{r}\right).$$ Of course, we can get $h(-3)=h(-4)=1$ by calculation. 
+\end{remark}
+More precise list for class number can be seen in the book \citep{Xianke2006ANT}.
+
+\section{Unit group of Real Quadratic Fields}
+For real quadratic fields, ZHANG \citep{Xianke2006ANT} has given a precise algorithm to compute it through the Pell's equation. Since the unit circle of a real quadratic field only hits two time real axis, then we have $\mu{K}=\{\pm1\}$. By Dirichlet Unit Theorem \ref{thm:Dirichlet}, we have $$U(K)=\{\pm1\}\times \epsilon^{\mathbb{Z}},$$ where $\epsilon$ generates an infinite cyclic group $\langle\epsilon\rangle=\epsilon^{\mathbb{Z}}$. There exists only one unit in the set (all of them can generate whole infinite cyclic group) $\{\pm\epsilon,\pm\epsilon^{-1}\}$ which is larger than 1, and we denote it as fundamental unit of $K$. 
+Now we just need to compute the fundamental unit. Let $K=\mathbb{Q}(\sqrt{d})$, where $d$ is squarefree. Let $\alpha=a+b\sqrt{d}(a,b\in\mathbb{Q})$ be unit of $K$, then $N(\alpha)=\pm1$. 
+If $d\equiv 2 \text{ or }3 \mod 4$, then $O_K=\mathbb{Z}[\sqrt{d}]$. A integer $\alpha=x+y\sqrt{d}(x,y\in\mathbb{Z})$ is unit if and only if $N(\alpha)=\pm1$, i.e. we have following Pell's equation:
+\begin{equation}\label{eqn:pell1}
+x^2-d y^2=\pm1
+\end{equation} 
+From the Unit Theorem, we note that if $\epsilon=a_1+b_1\sqrt{d}$ is a fundamental unit of $K$($a_1,b_1>0$), then $$\epsilon^n=(a_1+b_1\sqrt{d})^n=a_n+b_n\sqrt{d}$$ is also a unit who larger than one. What's more, $(a_n,b_n)$ are natural number solutions of the Pell's equation \ref{eqn:pell1}. Note that $b_{n+1}=a_1b_n+a_nb_1$, hence $b_n$ is an increasing sequence.
+
+Let us consider $b=1,2,3,\cdots$, if $d b^2\pm1$ is a square number (i.e. $a^2$), then we stop the process, i.e. we find the "smallest" solution of the Pell's equation \ref{eqn:pell1} and this solution is also the fundamental unit.
+
+Let's consider $d=6$, $6b^2\pm1$ is a square number firstly when $b=2$, i.e. we have the fundamental unit of $\mathbb{Q}(\sqrt{6})$ is $\epsilon=5+2\sqrt{6}$.
+
+Similarly, if $d\equiv1 \mod 4$, then $O_K=\mathbb{Z}[\frac{1+\sqrt{d}}{2}]$, an integer of $K$ has form $\alpha=(a+b\sqrt{d})/2$, where $a\equiv b \mod 2$, $a,b\in\mathbb{Z}$. $\alpha$ be unit of $K$ if and only if $N(\alpha)=(a^2-b^2d)/4=\pm1$, hence, $(a,b)$ is a solution of the following Pell's equation:
+\begin{equation}\label{eqn:pell2}
+x^2-d y^2=\pm4
+\end{equation}
+if $\epsilon=(a_1+b_1\sqrt{d})/2$ is a fundamental unit of $K$($a_1,b_1>0$), then $$\epsilon^n=(\frac{a_1+b_1\sqrt{d}}{2})^n=\frac{a_n+b_n\sqrt{d}}{2}$$ is also a unit who larger than one. Similarly, consider $b=1,2,3,\cdots$, if $d b^2\pm4$ is a square number (i.e. $a^2$), then we stop the process and get the fundamental unit $(a+b\sqrt{d})/2$.
+
+\section{Class Numbers of Real Quadratic Fields}
+Also, as in the imaginary case, using L-function, we can also get a beautiful results\citep{cohen1993course}. We have modified the results through discarding regulators.
+
+\begin{theorem}\label{thm:rquad_cl}
+If $D$ is a positive fundamental discriminant, then $$h(K)=-\frac{1}{\operatorname{ln}(\epsilon)}\sum_{r=1}^{\lfloor(D-1)/2\rfloor}\left(\frac{D}{r}\right)\operatorname{ln}\sin\left(\frac{r\pi}{D}\right).$$
+\end{theorem}
+
+Now we see an example, let $D=4d=8$, then $\epsilon=1+\sqrt{2}$ by the result of unit group of real quadratic field. From the Theorem \ref{thm:rquad_cl}, we have $$h(K)=-\frac{1}{\operatorname{ln}(1+\sqrt{2})}\left(\operatorname{ln}\sin(\frac{\pi}{8})-\operatorname{ln}\sin(\frac{3\pi}{8})\right)=-\frac{\operatorname{ln}(\tan(\frac{\pi}{8}))}{\operatorname{ln}(1+\sqrt{2})}=1.$$
+
